@@ -3,10 +3,10 @@ import '../App.css';
 
 class AddJobBoard extends Component {
     state = {
-        date = "",
-        jobType_id = "",
-        employee_id = "",
-        comments = "",
+        date : "",
+        jobType_id : "",
+        employee_id : "",
+        comments : "",
     };
 
     handleDateChange = e => {
@@ -40,8 +40,7 @@ class AddJobBoard extends Component {
         const employee_id = this.state.employee_id;
         const comments = this.state.comments;
         const data = { date, jobType_id, employee_id, comments };
-    
-        const url = `http://localhost:3000/dailyjobboard/post/add`;
+        const url = `http://localhost:3000/jobboard/post/add`;
         const response = fetch(url, {
             method: "POST",
             headers: {
