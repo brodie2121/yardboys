@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import AddSpraychart from './addSprayChart';
+import AddSpraychart from './addSpraychart';
 
 class SpraychartHome extends Component {
     state = {

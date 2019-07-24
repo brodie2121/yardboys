@@ -1,16 +1,16 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 
-class JobTypeList extends Component {
+class JobTypeHome extends Component {
     state = {
-        jobs: []
+        jobTypeHome: []
     };
 
     async componentDidMount() {
-        const jobs = await this.loadData();
-        console.log("jobs", jobs);
+        const jobTypeHome = await this.loadData();
+        console.log("jobTypeHome", jobTypeHome);
         this.setState({
-            jobs
+            jobTypeHome
         });
     }
 
@@ -23,23 +23,23 @@ class JobTypeList extends Component {
 
     handleChange = async event => {
         const changeValue = await this.setState({
-          posts: event.target.value
+          jobTypeHome: event.target.value
         });
         console.log(changeValue);
         return changeValue;
       };
       
     render() {
-        const { jobs } = this.state;
+        const { jobTypeHome } = this.state;
 
         return(
             <>
                 <h2>Jobs Type List</h2>
                 <ul>
-                    {jobs.map(job => {
+                    {jobTypeHome.map(jobtypehome => {
                         return ( 
-                            <li key={`job-${jobtype.id}`}>
-                                <Link to={`/jobs/${jobtype.id}`}>{job.jobtype} </Link>
+                            <li key={`job-${jobtypehome.id}`}>
+                                <Link to={`/jobtypehome/${jobtypehome.id}`}>{jobtypehome.jobtype} </Link>
                             </li>
                         );
                     })}
@@ -49,4 +49,4 @@ class JobTypeList extends Component {
     }
 }
 
-export default JobTypeList;
+export default JobTypeHome;

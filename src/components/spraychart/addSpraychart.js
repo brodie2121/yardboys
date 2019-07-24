@@ -69,7 +69,6 @@ class AddSpraychart extends Component {
     };
 
     handleSubmit = () => {
-
         const dateApplied = this.state.dateApplied;
         const employee_id = this.state.employee_id;
         const holesTreated = this.state.holesTreated;

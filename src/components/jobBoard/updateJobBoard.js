@@ -1,11 +1,11 @@
 import React, { Component } from "react";
 
-class UpdateJob extends Component {
+class UpdateJobBoard extends Component {
   state = {
-    date = "",
-    jobType_id = "",
-    employee_id = "",
-    comments = "",
+    date : "",
+    jobType_id : "",
+    employee_id : "",
+    comments : "",
 
   };
 
@@ -57,6 +57,7 @@ class UpdateJob extends Component {
 
   handleSubmit = e => {
     e.preventDefault();
+    const jobboardId = this.props.match.params.jobboard_id;
     const date = this.state.date;
     const jobType_id = this.state.jobType_id;
     const employee_id = this.state.employee_id;
@@ -123,4 +124,4 @@ class UpdateJob extends Component {
   }
 }
 
-export default UpdateJob;
+export default UpdateJobBoard;

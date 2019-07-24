@@ -3,13 +3,13 @@ import { Link } from 'react-router-dom';
 
 class JobTypes extends Component {
     state = {
-        jobTypes: [] 
+        jobtype: [] 
     }
 
 async componentDidMount() {
-    const jobTypes = await this.loadData();
+    const jobtype = await this.loadData();
     this.setState({
-        jobTypes
+        jobtype
     });
 }
 
@@ -29,11 +29,11 @@ async componentDidMount() {
     };
 
     render() {
-        const { jobTypes } = this.state;
+        const { jobtype } = this.state;
         return (
             <div>
-                <h2>{jobTypes.jobType}</h2>
-                <p>{jobTypes.instructions}</p>
+                <h2>{jobtype.jobtype}</h2>
+                <p>{jobtype.instructions}</p>
                 <Link onClick={this.deleteData} to={`/jobtype/all`}>
                     Delete Job Type
                 </Link>
