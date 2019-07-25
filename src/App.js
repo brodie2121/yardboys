@@ -15,6 +15,7 @@ import AddJobType from './components/jobType/addJobType';
 import JobTypeHome from './components/jobType/jobTypeHome';
 import EmployeeLogin from './components/employee/login';
 import EmployeeRegister from './components/employee/register';
+import UpdateEmployee from './components/employee/updateEmployee';
 
 function App() {
   return (
@@ -33,6 +34,7 @@ function App() {
       <Route path="/jobtypes/update/:jobtype_id?" component={UpdateJobType} />
       <Route path="/login" component={EmployeeLogin} />
       <Route path="/register" component={EmployeeRegister} />
+      <Route path="/employees/update/:employee_id?" component={UpdateEmployee} />
     </Router>
   );
 }

@@ -8,8 +8,8 @@ class EmployeeRegister extends Component {
 		this.state = {
             firstName : "",
             lastName : "", 
-            email : "",
             phone : "",
+            email : "",
             password : "",
             experience : "",
             dateStarted : "",
