@@ -31,30 +31,59 @@ class EmployeeRegister extends Component {
 
 	displayLogin(e) {
 		e.preventDefault();
-		console.log('You have successfully registered');
 		console.log(this.state);
 		this.setState({
 			fullname: '',
 			email: '',
 			password: ''
 		});
-	}
+    }
+    
+    handleSubmit = () => {
+        const firstName = this.state.firstName; 
+        const lastName = this.state.lastName;
+        const email = this.state.email;
+        const phone = this.state.phone;
+        const password = this.state.password;
+        const experience = this.state.experience;
+        const dateStarted = this.state.dateStarted;
+        const course_id = this.state.course_id;
+        const data = { firstName, lastName, email, phone, password, experience, dateStarted, course_id }
+        const url = `http://localhost:3000/register`;
+        const response = fetch(url, {
+            method: "POST",
+            headers: {
+                Accept: "application/json",
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(data)
+        })
+        .then(response => {
+            if (response.status === 200) {
+                this.props.history.push("/all");
+            }
+            console.log("response is", response);
+        })
+        .catch(err => {
+            console.log(err);
+        });
+    }
 
 	render() {
 		return (
 			<div className="register">
 				<form onSubmit={this.displayLogin}>
 					<h2>Register</h2>
-                    <div>
+                    <div className="firstName">
 						<input
 							type="text"
 							placeholder="First Name"
-							name="firsName"
+							name="firstName"
 							value={this.state.firstName}
 							onChange={this.update}
 						/>
                     </div>
-                    <div>
+                    <div className="lastName">
 						<input
 							type="text"
 							placeholder="Last Name"
@@ -84,7 +113,7 @@ class EmployeeRegister extends Component {
 						/>
 					</div>
 
-					<div className="pasword">
+					<div className="password">
 						<input
 							type="password"
 							placeholder="Password"
@@ -128,10 +157,10 @@ class EmployeeRegister extends Component {
 						<input type="password" placeholder="Confirm Password" name="password1" />
 					</div>
 
-					<input type="submit" value="Login" />
+					<input type="submit" value="Register" />
 				</form>
 
-				<Link to="/">Login Here</Link>
+				<Link to="/login">Login Here</Link>
 			</div>
 		);
 	}

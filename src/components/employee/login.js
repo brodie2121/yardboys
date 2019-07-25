@@ -30,8 +30,32 @@ class EmployeeLogin extends Component {
 		this.setState({
 			email: '',
 			password: ''
-		});
-	}
+        });
+    }
+
+    handleSubmit = async () => {
+        const email = this.state.email;
+        const password = this.state.password;
+        const data = { email, password }
+        const url = `http://localhost:3000/login`;
+        const response = await fetch(url, {
+            method: "POST",
+            headers: {
+                Accept: "application/json",
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(data)
+        })
+        .then(response => {
+            if (response.status === 200) {
+                this.props.history.push("/all");
+            }
+            console.log("response is", response);
+        })
+        .catch(err => {
+            console.log(err);
+        });
+    }
 
 	render() {
 		return (
