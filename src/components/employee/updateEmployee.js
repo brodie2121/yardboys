@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import '../App.css';
 
 class UpdateEmployee extends Component {
   state = {
@@ -10,7 +9,7 @@ class UpdateEmployee extends Component {
     password: "",
     experience: "", 
     dateStarted: "",
-    course_id: null,
+    course_id: "",
     employee_id: null
   };
 
@@ -141,9 +140,9 @@ class UpdateEmployee extends Component {
             <label> Phone Number: </label>
             <input 
                 type="text"
-                onChange={this.handlePhoneNumberChange}
-                name="phoneNumber"
-                value={this.state.phoneNumber}
+                onChange={this.handlePhoneChange}
+                name="phone"
+                value={this.state.phone}
             />
             <label> Email: </label>
             <input
@@ -165,6 +164,13 @@ class UpdateEmployee extends Component {
                 onChange={this.handleDateStartedChange}
                 name="dateStarted"
                 value={this.state.dateStarted}
+            />
+            <label> Course ID: </label>
+            <input
+                type="text"
+                onChange={this.handleCourse_idChange}
+                name="course_id"
+                value={this.state.course_id}
             />
           <input type="submit" value="Submit" />
         </form>

@@ -13,12 +13,10 @@ class UpdateJobBoard extends Component {
     const job = await this.loadData();
     console.log(job);
     this.setState({
-        posting_date: job.posting_date,
-        firstJob: job.firstjob,
-        commentsFirstJob: job.commentsfirstjob,
-        secondJob: job.secondjob,
-        commentsSecondJob: job.commentssecondjob,
-        employee_id: job.employee_id
+        date: job.date,
+        jobType_id : job.jobType_id,
+        employee_id: job.employee_id,
+        comments : job.comments
     });
   }
 
@@ -36,19 +34,19 @@ class UpdateJobBoard extends Component {
         });
     };
 
-    handleJobTypeChange = e => {
+    handleJobType_idChange = e => {
         this.setState({
             jobType_id: e.target.value
         });
     };
 
-    handleEmployeeChange = e => {
+    handleEmployee_idChange = e => {
         this.setState({
             employee_id: e.target.value
         });
     };
 
-    handleCommentSChange = e => {
+    handleCommentsChange = e => {
         this.setState({
             comments: e.target.value
         });
@@ -87,7 +85,7 @@ class UpdateJobBoard extends Component {
   render() {
     return (
       <>
-        <h2>{this.state.dailyjobboardId}</h2>
+        <h2>{this.state.jobboardId}</h2>
         <form onSubmit={this.handleSubmit}>
             <label> Date: </label>
             <input
@@ -99,14 +97,14 @@ class UpdateJobBoard extends Component {
             <label> Job: </label>
             <input
                 type="text"
-                onChange={this.handleJobTypeChange}
+                onChange={this.handleJobType_idChange}
                 name="jobType_id"
                 value={this.state.jobType_id}
             />
             <label> Employee: </label>
             <input
                 type="text"
-                onChange={this.handleEmployeeChange}
+                onChange={this.handleEmployee_idChange}
                 name="employee_id"
                         value={this.state.employee_id}
             />

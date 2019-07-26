@@ -14,16 +14,16 @@ async componentDidMount() {
 }
 
     loadData = async () => {
-        const jobboardId = this.props.match.params.jobboard_id;
-        const url = `http://localhost:3000/jobboard/jobs/${jobboardId}`;
+        const jobId = this.props.match.params.job_id;
+        const url = `http://localhost:3000/jobboard/jobs/${jobId}`;
         const response = await fetch(url);
         const data = response.json();
         return data;
     };
 
     deleteData = async () => {
-        const jobboardId = this.props.match.params.jobboard_id;
-        const url = `http://localhost:3000/jobboard/delete/${jobboardId}`;
+        const jobId = this.props.match.params.job_id;
+        const url = `http://localhost:3000/jobboard/delete/${jobId}`;
         const response = await fetch(url);
         return response;
     };

@@ -16,6 +16,10 @@ import JobTypeHome from './components/jobType/jobTypeHome';
 import EmployeeLogin from './components/employee/login';
 import EmployeeRegister from './components/employee/register';
 import UpdateEmployee from './components/employee/updateEmployee';
+import Employees from './components/employee/employee';
+import EmployeeHome from './components/employee/employeehome';
+import CourseHome from './components/yourCourse/courseHome';
+import YourCourse from './components/yourCourse/course';
 
 function App() {
   return (
@@ -35,6 +39,11 @@ function App() {
       <Route path="/login" component={EmployeeLogin} />
       <Route path="/register" component={EmployeeRegister} />
       <Route path="/employees/update/:employee_id?" component={UpdateEmployee} />
+      <Route path="/employee/all" component={EmployeeHome} />
+      <Route path="/employees/:employee_id?" component={Employees} />
+      <Route path="/employee/all" component={EmployeeHome} />
+      <Route path="/yourcourse/all" component={CourseHome} />
+      <Route path="/yourcourse/:course_id?" component={YourCourse} />
     </Router>
   );
 }
