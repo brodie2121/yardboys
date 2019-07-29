@@ -3,14 +3,14 @@ import { Link } from 'react-router-dom';
 
 class JobTypeHome extends Component {
     state = {
-        jobTypeHome: []
+        jobTypes: []
     };
 
     async componentDidMount() {
-        const jobTypeHome = await this.loadData();
-        console.log("jobTypeHome", jobTypeHome);
+        const jobTypes = await this.loadData();
+        console.log("jobTypes", jobTypes);
         this.setState({
-            jobTypeHome
+            jobTypes
         });
     }
 
@@ -23,23 +23,23 @@ class JobTypeHome extends Component {
 
     handleChange = async event => {
         const changeValue = await this.setState({
-          jobTypeHome: event.target.value
+          jobTypes: event.target.value
         });
         console.log(changeValue);
         return changeValue;
       };
       
     render() {
-        const { jobTypeHome } = this.state;
+        const { jobTypes } = this.state;
 
         return(
             <>
                 <h2>Jobs Type List</h2>
                 <ul>
-                    {jobTypeHome.map(jobtypehome => {
+                    {jobTypes.map(jobtype => {
                         return ( 
-                            <li key={`job-${jobtypehome.id}`}>
-                                <Link to={`/jobtypehome/${jobtypehome.id}`}>{jobtypehome.jobtype} </Link>
+                            <li key={`job-${jobtype.id}`}>
+                                <Link to={`/jobtypes/${jobtype.id}`}>{jobtype.jobtype} </Link>
                             </li>
                         );
                     })}
