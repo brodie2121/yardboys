@@ -23,19 +23,18 @@ class CourseHome extends Component {
 
     handleChange = async event => {
         const changeValue = await this.setState({
-            courses: event.target.value
+            course: event.target.value
         });
         console.log(changeValue);
         return changeValue;
     };
-
 
     render() {
         const { courses } = this.state;
 
         return(
             <>
-                <h2>Yard Boys</h2>
+                <h2>Your Course</h2>
                 <ul>
                     {courses.map(course => {
                         console.log('course', course);

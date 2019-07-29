@@ -14,23 +14,32 @@ async componentDidMount() {
 }
 
     loadData = async () => {
-        const courseId = this.props.match.params.yourcourse_id;
+        const courseId = this.props.match.params.course_id;
         const url = `http://localhost:3000/yourcourse/courses/${courseId}`;
         const response = await fetch(url);
         const data = response.json();
         return data;
+    };
+
+    deleteData = async () => {
+        const courseId = this.props.match.params.course_id;
+        const url = `http://localhost:3000/yourcourse/delete/${courseId}`;
+        const response = await fetch(url);
+        return response;
     };
     
     render() {
         const { course } = this.state;
         return (
             <div>
-                <h4>Yard Boy Info</h4>
-                <p>{course.clubname}</p>
+                <h2>{course.clubname}</h2>
                 <p>{course.admin}</p>
                 <p>{course.employees}</p>
                 <p>{course.city}</p>
                 <p>{course.state}</p>
+                <Link onClick={this.deleteData} to={`/courses/all`}>
+                    Delete course
+                </Link>
                 <Link to={`/courses/update/${course.id}`}>Update My Course</Link>
             </div>
         );

@@ -20,6 +20,7 @@ import Employees from './components/employee/employee';
 import EmployeeHome from './components/employee/employeehome';
 import CourseHome from './components/yourCourse/courseHome';
 import YourCourse from './components/yourCourse/course';
+import UpdateCourse from './components/yourCourse/updateCourse';
 
 function App() {
   return (
@@ -43,7 +44,8 @@ function App() {
       <Route path="/employees/:employee_id?" component={Employees} />
       <Route path="/employee/all" component={EmployeeHome} />
       <Route path="/yourcourse/all" component={CourseHome} />
-      <Route path="/yourcourse/:course_id?" component={YourCourse} />
+      <Route path="/courses/:course_id?" component={YourCourse} />
+      <Route path="/courses/update/:course_id?" component={UpdateCourse} />
     </Router>
   );
 }
