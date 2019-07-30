@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import Calendar from 'react-calendar';
 import './App.css';
@@ -23,32 +23,73 @@ import CourseHome from './components/yourCourse/courseHome';
 import YourCourse from './components/yourCourse/course';
 import UpdateCourse from './components/yourCourse/updateCourse';
 
-function App() {
-  return (
-    <Router>
-      <Route path="/spraychart/post/add" exact component={AddSpraychart} />
-      <Route path="/spraychart/all" exact component={SpraychartHome} />
-      <Route path="/spraycharts/:spraychart_id?" component={SprayCharts} />
-      <Route path="/spraycharts/update/:spraychart_id?" component={UpdateSpraychart} />
-      <Route path="/jobboard/all" exact component={JobBoardHome} />
-      <Route path="/jobboard/post/add" exact component={AddJobBoard} />
-      <Route path="/jobs/:job_id?" component={Jobs} />
-      <Route path="/jobs/update/:jobboard_id?" component={UpdateJobBoard} />
-      <Route path="/jobtype/all" exact component={JobTypeHome} />
-      <Route path="/jobtype/post/add" exact component={AddJobType} />
-      <Route path="/jobtypes/:jobtype_id?" component={JobTypes} />
-      <Route path="/jobtypes/update/:jobtype_id?" component={UpdateJobType} />
-      <Route path="/employee/login" component={EmployeeLogin} />
-      <Route path="/employee/register" component={EmployeeRegister} />
-      <Route path="/employees/update/:employee_id?" component={UpdateEmployee} />
-      <Route path="/employee/all" component={EmployeeHome} />
-      <Route path="/employees/:employee_id?" component={Employees} />
-      <Route path="/employee/all" component={EmployeeHome} />
-      <Route path="/yourcourse/all" component={CourseHome} />
-      <Route path="/courses/:course_id?" component={YourCourse} />
-      <Route path="/courses/update/:course_id?" component={UpdateCourse} />
-    </Router>
-  );
+class App extends Component {
+  state = {
+    isLoggedIn: false,
+    id: 0,
+    firstName: "",
+    lastName: "",
+		phone : "",
+		email : "",
+		experience : "",
+		dateStarted : "",
+		adminStatus : "",
+		course_id : ""
+  };
+
+  handleLoginState = employee => {
+    const { login, id, firstName, lastName, phone, email, experience, dateStarted, adminStatus, course_id } = employee;
+    this.setState({
+      isLoggedIn: login,
+      id,
+      firstName,
+      lastName,
+      phone,
+      email,
+      experience,
+      dateStarted,
+      adminStatus,
+      course_id
+    });
+  };
+
+  render() {
+    const { isLoggedIn } = this.state;
+    return (
+      <Router>
+        <Route 
+          path="/employee/login"
+          render={props => (
+              <EmployeeLogin
+                {...props}
+                employee={this.state}
+                handleEmployeeLoginState={this.handleEmployeeLoginState}
+              /> 
+            )} 
+          />
+        <Route path="/spraychart/post/add" exact component={AddSpraychart} />
+        <Route path="/spraychart/all" exact component={SpraychartHome} />
+        <Route path="/spraycharts/:spraychart_id?" component={SprayCharts} />
+        <Route path="/spraycharts/update/:spraychart_id?" component={UpdateSpraychart} />
+        <Route path="/jobboard/all" exact component={JobBoardHome} />
+        <Route path="/jobboard/post/add" exact component={AddJobBoard} />
+        <Route path="/jobs/:job_id?" component={Jobs} />
+        <Route path="/jobs/update/:jobboard_id?" component={UpdateJobBoard} />
+        <Route path="/jobtype/all" exact component={JobTypeHome} />
+        <Route path="/jobtype/post/add" exact component={AddJobType} />
+        <Route path="/jobtypes/:jobtype_id?" component={JobTypes} />
+        <Route path="/jobtypes/update/:jobtype_id?" component={UpdateJobType} />
+        <Route path="/employee/register" component={EmployeeRegister} />
+        <Route path="/employees/update/:employee_id?" component={UpdateEmployee} />
+        <Route path="/employee/all" component={EmployeeHome} />
+        <Route path="/employees/:employee_id?" component={Employees} />
+        <Route path="/employee/all" component={EmployeeHome} />
+        <Route path="/yourcourse/all" component={CourseHome} />
+        <Route path="/courses/:course_id?" component={YourCourse} />
+        <Route path="/courses/update/:course_id?" component={UpdateCourse} />
+      </Router>
+    );
+  }
 }
 
 export default App;

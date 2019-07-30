@@ -23,7 +23,6 @@ class EmployeeLogin extends Component {
     });
   };
 
-  // prettier-ignore
   handleSubmit = async () => {
         const url = "http://localhost:3000/employee/login";
 
