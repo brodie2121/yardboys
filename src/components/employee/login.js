@@ -37,7 +37,7 @@ class EmployeeLogin extends Component {
         const email = this.state.email;
         const password = this.state.password;
         const data = { email, password }
-        const url = `http://localhost:3000/login`;
+        const url = `http://localhost:3000/employee/login`;
         const response = await fetch(url, {
             method: "POST",
             headers: {

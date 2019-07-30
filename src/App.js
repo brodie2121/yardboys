@@ -38,8 +38,8 @@ function App() {
       <Route path="/jobtype/post/add" exact component={AddJobType} />
       <Route path="/jobtypes/:jobtype_id?" component={JobTypes} />
       <Route path="/jobtypes/update/:jobtype_id?" component={UpdateJobType} />
-      <Route path="/login" component={EmployeeLogin} />
-      <Route path="/register" component={EmployeeRegister} />
+      <Route path="/employee/login" component={EmployeeLogin} />
+      <Route path="/employee/register" component={EmployeeRegister} />
       <Route path="/employees/update/:employee_id?" component={UpdateEmployee} />
       <Route path="/employee/all" component={EmployeeHome} />
       <Route path="/employees/:employee_id?" component={Employees} />

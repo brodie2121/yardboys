@@ -49,7 +49,7 @@ class EmployeeRegister extends Component {
         const dateStarted = this.state.dateStarted;
         const course_id = this.state.course_id;
         const data = { firstName, lastName, email, phone, password, experience, dateStarted, course_id }
-        const url = `http://localhost:3000/register`;
+        const url = `http://localhost:3000/employee/register`;
         const response = fetch(url, {
             method: "POST",
             headers: {
