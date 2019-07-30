@@ -33,13 +33,12 @@ class EmployeeRegister extends Component {
 		e.preventDefault();
 		console.log(this.state);
 		this.setState({
-			fullname: '',
 			email: '',
 			password: ''
 		});
     }
     
-    handleSubmit = () => {
+    handleSubmit = async () => {
         const firstName = this.state.firstName; 
         const lastName = this.state.lastName;
         const email = this.state.email;
@@ -50,7 +49,7 @@ class EmployeeRegister extends Component {
         const course_id = this.state.course_id;
         const data = { firstName, lastName, email, phone, password, experience, dateStarted, course_id }
         const url = `http://localhost:3000/employee/register`;
-        const response = fetch(url, {
+        const response = await fetch(url, {
             method: "POST",
             headers: {
                 Accept: "application/json",
