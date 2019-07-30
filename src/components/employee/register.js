@@ -13,14 +13,13 @@ class EmployeeRegister extends Component {
             password : "",
             experience : "",
             dateStarted : "",
-            course_id : ""
+			course_id : ""
 		};
-
 		this.update = this.update.bind(this);
 
 		this.displayLogin = this.displayLogin.bind(this);
 	}
-
+	
 	update(e) {
 		let name = e.target.name;
 		let value = e.target.value;
@@ -37,40 +36,32 @@ class EmployeeRegister extends Component {
 			password: ''
 		});
     }
-    
-    handleSubmit = async () => {
-        const firstName = this.state.firstName; 
-        const lastName = this.state.lastName;
-        const email = this.state.email;
-        const phone = this.state.phone;
-        const password = this.state.password;
-        const experience = this.state.experience;
-        const dateStarted = this.state.dateStarted;
-        const course_id = this.state.course_id;
-        const data = { firstName, lastName, email, phone, password, experience, dateStarted, course_id }
-        const url = `http://localhost:3000/employee/register`;
-        const response = await fetch(url, {
-            method: "POST",
-            headers: {
-                Accept: "application/json",
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify(data)
-        })
-        .then(response => {
-            if (response.status === 200) {
-                this.props.history.push("/all");
-            }
-            console.log("response is", response);
-        })
-        .catch(err => {
-            console.log(err);
-        });
-    }
+
+
+	onChange = (e) => {
+		this.setState({ [e.target.name]: e.target.value });
+	}
+    onSubmit = (e) => {
+		e.preventDefault();
+		const { firstName, lastName, phone, email, password, experience, dateStarted, course_id } = this.state
+		
+		fetch('http://localhost:3000/employee/register', {
+			method: "POST",
+			headers: {
+				'Content-type' : 'application/json'
+			},
+			body: JSON.stringify(this.state) 
+			})
+			.then((result) => result.json())
+			.then((info) => { console.log(info); 
+			})
+    	}
 
 	render() {
+		const { classes } = this.props;
+		const { firstName, lastName, phone, email, password, experience, dateStarted, course_id } = this.state;
 		return (
-			<div className="register">
+			<div className="session">
 				<form onSubmit={this.displayLogin}>
 					<h2>Register</h2>
                     <div className="firstName">
@@ -159,7 +150,7 @@ class EmployeeRegister extends Component {
 					<input type="submit" value="Register" />
 				</form>
 
-				<Link to="/login">Login Here</Link>
+				<Link to="/employee/login">Login Here</Link>
 			</div>
 		);
 	}
