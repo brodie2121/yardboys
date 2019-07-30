@@ -68,7 +68,7 @@ class AddJobBoard extends Component {
                 <form onSubmit={this.handleSubmit}>
                     <label> Date: </label>
                     <input
-                        type="text"
+                        type="date"
                         onChange={this.handleDateChange}
                         name="date"
                         value={this.state.date}

@@ -1,5 +1,6 @@
 import React from 'react';
 import { BrowserRouter as Router, Route } from "react-router-dom";
+import Calendar from 'react-calendar';
 import './App.css';
 import SprayCharts from './components/spraychart/spraychart';
 import UpdateSpraychart from './components/spraychart/updateSpraychart';
