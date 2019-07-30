@@ -1,94 +1,109 @@
-import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
+
+import React, { Component } from "react";
+import { Link, Redirect } from "react-router-dom";
+import { Card, Field, Label, Control, Button, Input } from "bloomer";
+
 
 class EmployeeLogin extends Component {
-	constructor(props) {
-		super(props);
+  state = {
+    email: "",
+    password: "",
+    login: false
+  };
 
-		this.state = {
-			email: '',
-			password: ''
-		};
+  handleEmail = e => {
+    this.setState({
+      email: e.target.value
+    });
+  };
 
-		this.update = this.update.bind(this);
+  handlePassword = e => {
+    this.setState({
+      password: e.target.value
+    });
+  };
 
-		this.displayLogin = this.displayLogin.bind(this);
-	}
+  // prettier-ignore
+  handleSubmit = async () => {
+        const url = "http://localhost:3000/employee/login";
 
-	update(e) {
-		let name = e.target.name;
-		let value = e.target.value;
-		this.setState({
-			[name]: value
-		});
-	}
-
-	displayLogin(e) {
-		e.preventDefault();
-		console.log('You are logged in');
-		console.log(this.state);
-		this.setState({
-			email: '',
-			password: ''
-        });
-    }
-
-    handleSubmit = async () => {
-        const email = this.state.email;
-        const password = this.state.password;
-        const data = { email, password }
-        const url = `http://localhost:3000/employee/login`;
-        const response = await fetch(url, {
-            method: "POST",
-            headers: {
-                Accept: "application/json",
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify(data)
-        })
-        .then(response => {
-            if (response.status === 200) {
-                this.props.history.push("/all");
+        try {
+            const response = await fetch(url, {
+                method: "POST",
+                headers: {
+                    "Accept": "application/json",
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify(this.state)
+            });
+            const data = await response.json();
+            console.log('this is login response data: ', data)
+            const { login } = data;
+            if (!!login) {
+                const { id, firstName, lastName, phone, email, experience, dateStarted, adminStatus, course_id } = data;
+                this.props.handleLoginState({
+                    login,
+                    id,
+                    firstName,
+                    lastName,
+					phone,
+					email,
+					experience,
+					dateStarted,
+					adminStatus,
+					course_id
+                });
             }
-            console.log("response is", response);
-        })
-        .catch(err => {
-            console.log(err);
-        });
-    }
-
-	render() {
-		return (
-			<div className="login">
-				<form onSubmit={this.displayLogin}>
-					<h2>Login</h2>
-					<div className="username">
-						<input
-							type="text"
-							placeholder="Username..."
-							value={this.state.email}
-							onChange={this.update}
-							name="email"
-						/>
-					</div>
-
-					<div className="password">
-						<input
-							type="password"
-							placeholder="Password..."
-							value={this.state.password}
-							onChange={this.update}
-							name="password"
-						/>
-					</div>
-
-					<input type="submit" value="Login" />
-				</form>
-
-				<Link to="/register">Create an account</Link>
-			</div>
-		);
-	}
+            this.setState({
+                login
+            });
+        } catch (err) {
+            console.log("there has been login error", err);
+        }
+    };
+  render() {
+    const { login } = this.state;
+    return (
+      <Card>
+        <Field>
+          <Label> Email </Label>
+          <Control>
+            <Input
+              type="text"
+              placeholder="Enter your email address..."
+              onChange={this.handleEmail}
+              value={this.state.email}
+            />
+          </Control>
+        </Field>
+        <Field>
+          <Label> Password </Label>
+          <Control>
+            <Input
+              type="text"
+              placeholder="Enter your very secure password..."
+              onChange={this.handlePassword}
+              value={this.state.password}
+            />
+          </Control>
+        </Field>
+        <Field isGrouped>
+          <Control>
+            <Button iscolor="primary" onClick={this.handleSubmit}>
+              Submit
+            </Button>
+          </Control>
+          <Control>
+            <Button isLink>Cancel</Button>
+          </Control>
+        </Field>
+        <p>
+          Not signed up yet? <Link to="/signup">Register here!</Link>
+        </p>
+        {!!login ? <Redirect to="/" /> : ""}
+      </Card>
+    );
+  }
 }
 
 export default EmployeeLogin;
