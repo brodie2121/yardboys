@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
+import Calendar from "react-calendar";
 
 class SprayCharts extends Component {
     state = {
@@ -42,6 +43,12 @@ async componentDidMount() {
                 <p>{spraychart.totalgallons}</p>
                 <p>{spraychart.sprayrig}</p>
                 <p>{spraychart.pestordiseasecontrolled}</p>
+                    <div>
+                        <Calendar
+                            onChange={this.onChange}
+                            value={this.state.date}
+                        />
+                    </div>
                 <Link onClick={this.deleteData} to={`/spraychart/all`}>
                     Delete spraychart
                 </Link>
