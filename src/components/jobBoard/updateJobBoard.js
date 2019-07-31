@@ -3,7 +3,7 @@ import React, { Component } from "react";
 class UpdateJobBoard extends Component {
   state = {
     date : "",
-    jobType : "",
+    jobtype : "",
     employee : "",
     comments : "",
     jobboard_id : null
@@ -14,17 +14,17 @@ class UpdateJobBoard extends Component {
     console.log(job);
     this.setState({
         date : job.date,
-        jobType : job.jobtype,
+        jobtype : job.jobtype,
         employee : job.employee,
         comments : job.comments,
-        jobboard_id : job.jobboard_id
+        job_id : job.job_id
 
     });
   }
 
     loadData = async () => {
-        const jobboardId = this.props.match.params.jobboard_id;
-        const url = `http://localhost:3000/jobboard/jobs/${jobboardId}`;
+        const jobId = this.props.match.params.job_id;
+        const url = `http://localhost:3000/jobboard/jobs/${jobId}`;
         const response = await fetch(url);
         const data = response.json();
         return data;
@@ -38,7 +38,7 @@ class UpdateJobBoard extends Component {
 
     handleJobTypeChange = e => {
         this.setState({
-            jobType: e.target.value
+            jobtype: e.target.value
         });
     };
 
@@ -57,13 +57,13 @@ class UpdateJobBoard extends Component {
 
   handleSubmit = e => {
     e.preventDefault();
-    const jobboardId = this.props.match.params.jobboard_id;
+    const jobId = this.props.match.params.job_id;
     const date = this.state.date;
-    const jobType = this.state.jobType;
+    const jobtype = this.state.jobtype;
     const employee = this.state.employee;
     const comments = this.state.comments;
-    const data = { date, jobType, employee, comments };
-    const url = `http://localhost:3000/jobboard/jobs/update/${jobboardId}`;
+    const data = { date, jobtype, employee, comments };
+    const url = `http://localhost:3000/jobboard/jobs/update/${jobId}`;
     const response = fetch(url, {
       method: "PUT",
       headers: {
@@ -100,8 +100,8 @@ class UpdateJobBoard extends Component {
             <input
                 type="text"
                 onChange={this.handleJobTypeChange}
-                name="jobType"
-                value={this.state.jobType}
+                name="jobtype"
+                value={this.state.jobtype}
             />
             <label> Employee: </label>
             <input

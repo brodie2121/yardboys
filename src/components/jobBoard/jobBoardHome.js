@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import Calendar from "react-calendar";
 
 class JobBoardHome extends Component {
     state = {
@@ -23,12 +24,12 @@ class JobBoardHome extends Component {
 
     handleChange = async event => {
         const changeValue = await this.setState({
-          posts: event.target.value
+          jobs: event.target.value
         });
         console.log(changeValue);
         return changeValue;
       };
-      
+    
     render() {
         const { jobs } = this.state;
 
@@ -44,6 +45,12 @@ class JobBoardHome extends Component {
                         );
                     })}
                 </ul>
+                <div>
+                    <Calendar
+                        onChange={this.onChange}
+                        value={this.state.date}
+                    />
+                </div>
             </>
         );
     }

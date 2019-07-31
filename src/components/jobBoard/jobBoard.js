@@ -8,22 +8,23 @@ class Jobs extends Component {
 
 async componentDidMount() {
     const job = await this.loadData();
+    console.log("loadData");
     this.setState({
         job
     });
 }
 
     loadData = async () => {
-        const jobId = this.props.match.params.job_id;
-        const url = `http://localhost:3000/jobboard/jobs/${jobId}`;
+        const jobboardId = this.props.match.params.jobboard_id;
+        const url = `http://localhost:3000/jobboard/jobs/${jobboardId}`;
         const response = await fetch(url);
         const data = response.json();
         return data;
     };
 
     deleteData = async () => {
-        const jobId = this.props.match.params.job_id;
-        const url = `http://localhost:3000/jobboard/delete/${jobId}`;
+        const jobboardId = this.props.match.params.jobboard_id;
+        const url = `http://localhost:3000/jobboard/delete/${jobboardId}`;
         const response = await fetch(url);
         return response;
     };
@@ -33,8 +34,8 @@ async componentDidMount() {
         return (
             <div>
                 <h2>{job.date}</h2>
-                <p>{job.jobType_id}</p>
-                <p>{job.employee_id}</p>
+                <p>{job.jobtype}</p>
+                <p>{job.employee}</p>
                 <p>{job.comments}</p>
                 <Link onClick={this.deleteData} to={`/jobboard/all`}>
                     Delete job

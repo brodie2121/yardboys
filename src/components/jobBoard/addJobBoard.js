@@ -4,8 +4,8 @@ import React, { Component } from 'react';
 class AddJobBoard extends Component {
     state = {
         date : "",
-        jobType_id : "",
-        employee_id : "",
+        jobtype : "",
+        employee : "",
         comments : "",
     };
 
@@ -17,17 +17,17 @@ class AddJobBoard extends Component {
 
     handleJobTypeChange = e => {
         this.setState({
-            jobType_id: e.target.value
+            jobtype: e.target.value
         });
     };
 
     handleEmployeeChange = e => {
         this.setState({
-            employee_id: e.target.value
+            employee: e.target.value
         });
     };
 
-    handleCommentSChange = e => {
+    handleCommentsChange = e => {
         this.setState({
             comments: e.target.value
         });
@@ -36,10 +36,10 @@ class AddJobBoard extends Component {
     handleSubmit = () => {
 
         const date = this.state.date;
-        const jobType_id = this.state.jobType_id;
-        const employee_id = this.state.employee_id;
+        const jobtype = this.state.jobtype;
+        const employee = this.state.employee;
         const comments = this.state.comments;
-        const data = { date, jobType_id, employee_id, comments };
+        const data = { date, jobtype, employee, comments };
         const url = `http://localhost:3000/jobboard/post/add`;
         const response = fetch(url, {
             method: "POST",
@@ -77,15 +77,15 @@ class AddJobBoard extends Component {
                     <input
                         type="text"
                         onChange={this.handleJobTypeChange}
-                        name="jobType_id"
-                        value={this.state.jobType_id}
+                        name="jobtype"
+                        value={this.state.jobtype}
                     />
                     <label> Employee: </label>
                     <input
                         type="text"
                         onChange={this.handleEmployeeChange}
-                        name="employee_id"
-                        value={this.state.employee_id}
+                        name="employee"
+                        value={this.state.employee}
                     />
                     <label> Comments: </label>
                     <input

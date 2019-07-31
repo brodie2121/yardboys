@@ -73,8 +73,8 @@ class App extends Component {
         <Route path="/spraycharts/update/:spraychart_id?" component={UpdateSpraychart} />
         <Route path="/jobboard/all" exact component={JobBoardHome} />
         <Route path="/jobboard/post/add" exact component={AddJobBoard} />
-        <Route path="/jobs/:job_id?" component={Jobs} />
-        <Route path="/jobs/update/:jobboard_id?" component={UpdateJobBoard} />
+        <Route path="/jobs/:jobboard_id?" component={Jobs} />
+        <Route path="/jobs/update/:job_id?" component={UpdateJobBoard} />
         <Route path="/jobtype/all" exact component={JobTypeHome} />
         <Route path="/jobtype/post/add" exact component={AddJobType} />
         <Route path="/jobtypes/:jobtype_id?" component={JobTypes} />
