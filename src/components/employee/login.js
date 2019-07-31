@@ -99,7 +99,7 @@ class EmployeeLogin extends Component {
         <p>
           Not signed up yet? <Link to="/signup">Register here!</Link>
         </p>
-        {!!login ? <Redirect to="/" /> : ""}
+        {!!login ? <Redirect to="/jobboard/all" /> : ""}
       </Card>
     );
   }

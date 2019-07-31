@@ -212,7 +212,7 @@ class EmployeeRegister extends Component {
 				<Button isLink>Cancel</Button>
 			  </Control>
 			</Field>
-			{!!EmployeeRegistered ? <Redirect to="/" /> : ""}
+			{!!EmployeeRegistered ? <Redirect to="/jobboard/all" /> : ""}
 		  </Card>
 		);
 	  }
