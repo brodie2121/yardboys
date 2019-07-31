@@ -12,26 +12,26 @@ import {
 
 class EmployeeRegister extends Component {
 	state = {
-		firstName : "",
-		lastName : "", 
+		firstname : "",
+		lastname : "", 
 		phone : "",
 		email : "",
 		password : "",
 		experience : "",
-		dateStarted : "",
-		adminStatus : "",
+		datestarted : "",
+		adminstatus : "",
 		course_id : ""
 	};
 
 	handleFirstName = e => {
 		this.setState({
-			firstName: e.target.value
+			firstname: e.target.value
 		});
 	};
   
 	handleLastName = e => {
 		this.setState({
-			lastName: e.target.value
+			lastname: e.target.value
 		});
 	};
   
@@ -61,13 +61,13 @@ class EmployeeRegister extends Component {
 
 	handleDateStarted = e => {
 		this.setState({
-			dateStarted: e.target.value
+			datestarted: e.target.value
 		});
 	};
 
 	handleAdminStatus = e => {
 		this.setState({
-			adminStatus: e.target.value
+			adminstatus: e.target.value
 		});
 	};
 
@@ -110,7 +110,7 @@ class EmployeeRegister extends Component {
 				  type="text"
 				  placeholder="Steve"
 				  onChange={this.handleFirstName}
-				  value={this.state.firstName}
+				  value={this.state.firstname}
 				/>
 			  </Control>
 			</Field>
@@ -121,7 +121,7 @@ class EmployeeRegister extends Component {
 				  type="text"
 				  placeholder="Jobs"
 				  onChange={this.handleLastName}
-				  value={this.state.lastName}
+				  value={this.state.lastname}
 				/>
 			  </Control>
 			</Field>
@@ -176,7 +176,7 @@ class EmployeeRegister extends Component {
 				  type="text"
 				  placeholder="date started"
 				  onChange={this.handleDateStarted}
-				  value={this.state.dateStarted}
+				  value={this.state.datestarted}
 				/>
 			  </Control>
 			</Field>
@@ -187,7 +187,7 @@ class EmployeeRegister extends Component {
 				  type="text"
 				  placeholder="are you an admin?"
 				  onChange={this.handleAdminStatus}
-				  value={this.state.adminStatus}
+				  value={this.state.adminstatus}
 				/>
 			  </Control>
 			</Field>

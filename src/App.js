@@ -27,28 +27,28 @@ class App extends Component {
   state = {
     isLoggedIn: false,
     id: 0,
-    firstName: "",
-    lastName: "",
+    firstname: "",
+    lastname: "",
 		phone : "",
 		email : "",
 		experience : "",
-		dateStarted : "",
-		adminStatus : "",
+		datestarted : "",
+		adminstatus : "",
 		course_id : ""
   };
 
   handleLoginState = employee => {
-    const { login, id, firstName, lastName, phone, email, experience, dateStarted, adminStatus, course_id } = employee;
+    const { login, id, firstname, lastname, phone, email, experience, datestarted, adminstatus, course_id } = employee;
     this.setState({
       isLoggedIn: login,
       id,
-      firstName,
-      lastName,
+      firstname,
+      lastname,
       phone,
       email,
       experience,
-      dateStarted,
-      adminStatus,
+      datestarted,
+      adminstatus,
       course_id
     });
   };
