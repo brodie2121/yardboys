@@ -3,9 +3,12 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "axios": "^0.19.0",
     "bloomer": "^0.6.5",
     "bulma": "^0.7.5",
+    "moment": "^2.24.0",
     "react": "^16.8.6",
+    "react-big-calendar": "^0.22.0",
     "react-calendar": "^2.19.0",
     "react-dom": "^16.8.6",
     "react-router-dom": "^5.0.1",

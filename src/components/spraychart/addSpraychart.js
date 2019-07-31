@@ -108,7 +108,7 @@ class AddSpraychart extends Component {
                 <form onSubmit={this.handleSubmit}>
                     <label> Date Applied: </label>
                     <input
-                        type="text"
+                        type="date"
                         onChange={this.handleDateAppliedChange}
                         name="dateApplied"
                         value={this.state.dateApplied}

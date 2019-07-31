@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
-import Calendar from 'react-calendar';
 import './App.css';
 import SprayCharts from './components/spraychart/spraychart';
 import UpdateSpraychart from './components/spraychart/updateSpraychart';
@@ -17,6 +16,7 @@ import JobTypeHome from './components/jobType/jobTypeHome';
 import EmployeeLogin from './components/employee/login';
 import EmployeeRegister from './components/employee/register';
 import UpdateEmployee from './components/employee/updateEmployee';
+import JobBoardDate from './components/jobBoard/jobBoardDate';
 import Employees from './components/employee/employee';
 import EmployeeHome from './components/employee/employeehome';
 import CourseHome from './components/yourCourse/courseHome';
@@ -73,6 +73,7 @@ class App extends Component {
         <Route path="/spraycharts/update/:spraychart_id?" component={UpdateSpraychart} />
         <Route path="/jobboard/all" exact component={JobBoardHome} />
         <Route path="/jobboard/post/add" exact component={AddJobBoard} />
+        <Route path="/jobs/date/:date?" exact component={JobBoardDate} />
         <Route path="/jobs/:jobboard_id?" component={Jobs} />
         <Route path="/jobs/update/:job_id?" component={UpdateJobBoard} />
         <Route path="/jobtype/all" exact component={JobTypeHome} />
