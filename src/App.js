@@ -23,6 +23,7 @@ import EmployeeHome from './components/employee/employeehome';
 import CourseHome from './components/yourCourse/courseHome';
 import YourCourse from './components/yourCourse/course';
 import UpdateCourse from './components/yourCourse/updateCourse';
+//import Weather from './components/weather/weather';
 
 class App extends Component {
   state = {
@@ -59,6 +60,7 @@ class App extends Component {
     return (
       <Router>
         <Route path="/" component={Navbar} />
+        
         <Route 
           path="/employee/login"
           render={props => (

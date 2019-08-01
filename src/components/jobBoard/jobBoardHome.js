@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import AddJobBoard from './addJobBoard';
 
 class JobBoardHome extends Component {
     state = {
@@ -39,11 +40,12 @@ class JobBoardHome extends Component {
                     {jobs.map(job => {
                         return ( 
                             <li key={`job-${job.id}`}>
-                                <Link to={`/jobs/${job.id}`}>{job.date} </Link>
+                                <Link to={`/jobs/${job.id}`}>{job.date} {job.employee} {job.jobtype} </Link>
                             </li>
                         );
                     })}
                 </ul>
+                <AddJobBoard />
             </>
         );
     }
