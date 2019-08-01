@@ -20,9 +20,9 @@ class Weather extends Component {
   }
 
   componentDidMount(){
-    this.getCityWeather('London');
+    this.getCityWeather('');
     const elems = document.querySelectorAll('.modal');
-    const instances = window.M.modal.init(elems);    
+      
   }
 
   componentDidUpdate(prevProps,prevState){

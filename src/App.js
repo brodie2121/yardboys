@@ -23,7 +23,7 @@ import EmployeeHome from './components/employee/employeehome';
 import CourseHome from './components/yourCourse/courseHome';
 import YourCourse from './components/yourCourse/course';
 import UpdateCourse from './components/yourCourse/updateCourse';
-//import Weather from './components/weather/weather';
+import Weather from './components/weather/weather';
 
 class App extends Component {
   state = {
@@ -60,7 +60,7 @@ class App extends Component {
     return (
       <Router>
         <Route path="/" component={Navbar} />
-        
+        <Route path="/" exact component={Weather} />
         <Route 
           path="/employee/login"
           render={props => (
@@ -88,7 +88,6 @@ class App extends Component {
         <Route path="/employees/update/:employee_id?" component={UpdateEmployee} />
         <Route path="/employee/all" component={EmployeeHome} />
         <Route path="/employees/:employee_id?" component={Employees} />
-        <Route path="/employee/all" component={EmployeeHome} />
         <Route path="/yourcourse/all" component={CourseHome} />
         <Route path="/courses/:course_id?" component={YourCourse} />
         <Route path="/courses/update/:course_id?" component={UpdateCourse} />
