@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import './App.css';
+import Navbar from './components/navbar/navbar';
 import SprayCharts from './components/spraychart/spraychart';
 import UpdateSpraychart from './components/spraychart/updateSpraychart';
 import AddSpraychart from './components/spraychart/addSpraychart';
@@ -57,6 +58,7 @@ class App extends Component {
     const { isLoggedIn } = this.state;
     return (
       <Router>
+        <Route path="/" component={Navbar} />
         <Route 
           path="/employee/login"
           render={props => (
