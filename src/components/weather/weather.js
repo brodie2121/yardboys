@@ -20,9 +20,9 @@ class Weather extends Component {
   }
 
   componentDidMount(){
-    this.getCityWeather('');
+    this.getCityWeather('Chattanooga');
     const elems = document.querySelectorAll('.modal');
-      
+ 
   }
 
   componentDidUpdate(prevProps,prevState){
@@ -30,7 +30,7 @@ class Weather extends Component {
       const isRaining = this.state.weather.includes("rain");
       if(isRaining){
         this.setState({
-          isRaining: "Rain rain go away!!!"
+          isRaining: "It's Raining!!!"
         })
       }
     }
@@ -70,10 +70,7 @@ class Weather extends Component {
       <div className="row">
         <div className="col s6 offset-s3">
           <Headers temp={this.state.temp} isRaining={this.state.isRaining} />
-          <a className="waves-effect waves-light btn modal-trigger" href="#modal1">Details</a>
-          <form onSubmit={this.searchCity}>
-            <input type="text" id="city" placeholder="Enter a City Name" />
-          </form>
+          <a className="waves-effect waves-light btn modal-trigger" href="#modal1">Chattanooga</a>
           </div>
         </div>  
 
