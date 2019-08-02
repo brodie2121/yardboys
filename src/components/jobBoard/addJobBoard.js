@@ -1,5 +1,13 @@
 import React, { Component } from 'react'; 
-
+import {
+    Field,
+    Label,
+    Control,
+    Button,
+    Input,
+    TextArea,
+    Card
+  } from "bloomer";
 
 class AddJobBoard extends Component {
     state = {
@@ -64,38 +72,68 @@ class AddJobBoard extends Component {
     render() {
         return(
             <>
-                <h4>New Job Board</h4>
-                <form onSubmit={this.handleSubmit}>
-                    <label> Date: </label>
-                    <input
-                        type="date"
-                        onChange={this.handleDateChange}
-                        name="date"
-                        value={this.state.date}
-                    />
-                    <label> Job: </label>
-                    <input
-                        type="text"
-                        onChange={this.handleJobTypeChange}
-                        name="jobtype"
-                        value={this.state.jobtype}
-                    />
-                    <label> Employee: </label>
-                    <input
-                        type="text"
-                        onChange={this.handleEmployeeChange}
-                        name="employee"
-                        value={this.state.employee}
-                    />
-                    <label> Comments: </label>
-                    <input
-                        type="text"
-                        onChange={this.handleCommentsChange}
-                        name="comments"
-                        value={this.state.comments}
-                    />
-                    <input type="submit" value="Submit" />
-                </form>
+                <Card>
+                    <Field onSubmit={this.handleSubmit}>
+                        <Label>Date</Label>
+                        <Control>
+                            <Input 
+                            type="date" 
+                            placeholder="date"
+                            onChange={this.handleDateChange}
+                            name="date"
+                            value={this.state.date}
+                            />
+                        </Control>
+                    </Field>
+
+                    <Field onSubmit={this.handleSubmit}>
+                        <Label>Job</Label>
+                        <Control>
+                            <Input 
+                            type="text" 
+                            placeholder="job"
+                            onChange={this.handleJobTypeChange}
+                            name="jobtype"
+                            value={this.state.jobtype}
+                            />
+                        </Control>
+                    </Field>
+
+                    <Field onSubmit={this.handleSubmit}>
+                        <Label>Employee</Label>
+                        <Control>
+                            <Input 
+                            type="text" 
+                            placeholder="employee"
+                            onChange={this.handleEmployeeChange}
+                            name="employee"
+                            value={this.state.employee}
+                            />
+                        </Control>
+                    </Field>
+
+                    <Field onSubmit={this.handleSubmit}>
+                        <Label>Comments</Label>
+                        <Control>
+                            <TextArea 
+                                placeholder={'Comments '} 
+                                type="text" 
+                                onChange={this.handleCommentsChange}
+                                name="comments"
+                                value={this.state.comments}
+                            />
+                        </Control>
+                    </Field>
+
+
+                    <Field isGrouped>
+                        <Control>
+                            <Button iscolor="primary" onClick={this.handleSubmit}>
+                            Submit
+                            </Button>
+                        </Control>
+                    </Field>
+                </Card>
             </>
         );
     }

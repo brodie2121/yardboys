@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import AddJobBoard from './addJobBoard';
 
+
 class JobBoardHome extends Component {
     state = {
         jobs: []
@@ -35,6 +36,7 @@ class JobBoardHome extends Component {
 
         return(
             <>
+            <div className='home-photo'></div>
                 <h2>Job Board Home</h2>
                 <ul>
                     {jobs.map(job => {
