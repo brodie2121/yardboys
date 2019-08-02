@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import Calendar from "react-calendar";
+import { Table } from 'bloomer';
+import 'bulma';
 
 class SprayCharts extends Component {
     state = {
@@ -33,22 +35,36 @@ async componentDidMount() {
         const { spraychart } = this.state;
         return (
             <div>
-                <h2>{spraychart.dateapplied}</h2>
-                <p>{spraychart.id}</p>
-                <p>{spraychart.employee_id}</p>
-                <p>{spraychart.holestreated}</p>
-                <p>{spraychart.lengthofcuttreated}</p>
-                <p>{spraychart.chemicalsbeingused}</p>
-                <p>{spraychart.rateapplied}</p>
-                <p>{spraychart.totalgallons}</p>
-                <p>{spraychart.sprayrig}</p>
-                <p>{spraychart.pestordiseasecontrolled}</p>
-                    <div>
-                        <Calendar
-                            onChange={this.onChange}
-                            value={this.state.date}
-                        />
-                    </div>
+                <Table isBordered isStriped isNarrow>
+                    <thead>
+                        <tr className='is-selected'>
+                            <th>Date Applied</th>
+                            <th>id</th>
+                            <th>Employee</th>
+                            <th>Holes Treated</th>
+                            <th>Length of Cut</th>
+                            <th>Chemicals</th>
+                            <th>Rate Applied</th>
+                            <th>Total Gallons</th>
+                            <th>Spray Rig Used</th>
+                            <th>Pest of Disease Controlled</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>{spraychart.dateapplied}</td>
+                            <td>{spraychart.id}</td>
+                            <td>{spraychart.employee_id}</td>
+                            <td>{spraychart.holestreated}</td>
+                            <td>{spraychart.lengthofcuttreated}</td>
+                            <td>{spraychart.chemicalsbeingused}</td>
+                            <td>{spraychart.rateapplied}</td>
+                            <td>{spraychart.totalgallons}</td>
+                            <td>{spraychart.sprayrig}</td>
+                            <td>{spraychart.pestordiseasecontrolled}</td>
+                        </tr>
+                </tbody>
+            </Table>
                 <Link onClick={this.deleteData} to={`/spraychart/all`}>
                     Delete spraychart
                 </Link>

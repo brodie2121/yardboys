@@ -8,6 +8,7 @@ import {
     TextArea,
     Card
   } from "bloomer";
+  import 'bulma';
 
 class AddJobBoard extends Component {
     state = {
@@ -78,7 +79,7 @@ class AddJobBoard extends Component {
                         <Control>
                             <Input 
                             type="date" 
-                            placeholder="date"
+                            placeholder="Date"
                             onChange={this.handleDateChange}
                             name="date"
                             value={this.state.date}
@@ -91,7 +92,7 @@ class AddJobBoard extends Component {
                         <Control>
                             <Input 
                             type="text" 
-                            placeholder="job"
+                            placeholder="Job"
                             onChange={this.handleJobTypeChange}
                             name="jobtype"
                             value={this.state.jobtype}
@@ -104,7 +105,7 @@ class AddJobBoard extends Component {
                         <Control>
                             <Input 
                             type="text" 
-                            placeholder="employee"
+                            placeholder="Employee"
                             onChange={this.handleEmployeeChange}
                             name="employee"
                             value={this.state.employee}

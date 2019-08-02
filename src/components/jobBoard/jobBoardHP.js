@@ -43,7 +43,7 @@ class JobBoardHP extends Component {
                                 <Card>
                                     <Table isBordered isStriped isNarrow>
                                         <thead>
-                                            <tr>
+                                            <tr className='is-selected'>
                                                 <th>Date</th>
                                                 <th>Job</th>
                                                 <th>Employee</th>
@@ -51,7 +51,7 @@ class JobBoardHP extends Component {
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <tr className='is-selected'>
+                                            <tr>
                                                 <td>{job.date}</td>
                                                 <td>{job.jobtype}</td>
                                                 <td>{job.employee}</td>
