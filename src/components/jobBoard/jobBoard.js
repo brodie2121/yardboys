@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Link } from 'react-router-dom';
+import { Table } from 'bloomer';
 
 class Jobs extends Component {
     state = {
@@ -33,10 +34,24 @@ async componentDidMount() {
         const { job } = this.state;
         return (
             <div>
-                <h2>{job.date}</h2>
-                <p>{job.jobtype}</p>
-                <p>{job.employee}</p>
-                <p>{job.comments}</p>
+                <Table isBordered isStriped isNarrow>
+                    <thead>
+                        <tr>
+                            <th>Date</th>
+                            <th>Job</th>
+                            <th>Employee</th>
+                            <th>Comments</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>{job.date}</td>
+                            <td>{job.jobtype}</td>
+                            <td>{job.employee}</td>
+                            <td>{job.comments}</td>
+                        </tr>
+                </tbody>
+            </Table>
                 <Link onClick={this.deleteData} to={`/jobboard/all`}>
                     Delete job
                 </Link>

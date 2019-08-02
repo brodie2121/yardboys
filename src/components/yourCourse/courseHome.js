@@ -40,7 +40,8 @@ class CourseHome extends Component {
                         console.log('course', course);
                         return ( 
                             <li key={`course-${course.id}`}>
-                                <Link to={`/courses/${course.id}`}>{course.clubname}</Link>
+                                <Link to={`/courses/${course.id}`}>
+                                {course.clubname}</Link>
                             </li>
                         );
                     })}

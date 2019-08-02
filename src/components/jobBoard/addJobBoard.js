@@ -51,7 +51,7 @@ class AddJobBoard extends Component {
         })
         .then(response => {
             if (response.status === 200) {
-                this.props.history.push("/all");
+                this.props.history.push("/");
             }
             console.log("response is", response);
         })

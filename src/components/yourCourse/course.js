@@ -33,8 +33,6 @@ async componentDidMount() {
         return (
             <div>
                 <h2>{course.clubname}</h2>
-                <p>{course.admin}</p>
-                <p>{course.employees}</p>
                 <p>{course.city}</p>
                 <p>{course.state}</p>
                 <Link onClick={this.deleteData} to={`/courses/all`}>

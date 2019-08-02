@@ -24,6 +24,7 @@ import CourseHome from './components/yourCourse/courseHome';
 import YourCourse from './components/yourCourse/course';
 import UpdateCourse from './components/yourCourse/updateCourse';
 import Weather from './components/weather/weather';
+import HomePage from './components/home';
 
 class App extends Component {
   state = {
@@ -60,7 +61,8 @@ class App extends Component {
     return (
       <Router>
         <Route path="/" component={Navbar} />
-        <Route path="/" exact component={Weather} />
+        
+        <Route path="/" exact component={HomePage} />
         <Route 
           path="/employee/login"
           render={props => (

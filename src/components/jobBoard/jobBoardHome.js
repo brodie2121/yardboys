@@ -40,7 +40,7 @@ class JobBoardHome extends Component {
                     {jobs.map(job => {
                         return ( 
                             <li key={`job-${job.id}`}>
-                                <Link to={`/jobs/${job.id}`}>{job.date} {job.employee} {job.jobtype} </Link>
+                                <Link to={`/jobs/${job.id}`}>{job.date} {job.employee} {job.jobtype} {job.comments} </Link>
                             </li>
                         );
                     })}
