@@ -14,7 +14,7 @@ class AddJobBoard extends Component {
     state = {
         date : "",
         jobtype : "",
-        employee : "",
+        firstname : "",
         comments : "",
     };
 
@@ -30,9 +30,9 @@ class AddJobBoard extends Component {
         });
     };
 
-    handleEmployeeChange = e => {
+    handleFirstNameChange = e => {
         this.setState({
-            employee: e.target.value
+            firstname: e.target.value
         });
     };
 
@@ -46,9 +46,9 @@ class AddJobBoard extends Component {
 
         const date = this.state.date;
         const jobtype = this.state.jobtype;
-        const employee = this.state.employee;
+        const firstname = this.state.firstname;
         const comments = this.state.comments;
-        const data = { date, jobtype, employee, comments };
+        const data = { date, jobtype, firstname, comments };
         const url = `http://localhost:3000/jobboard/post/add`;
         const response = fetch(url, {
             method: "POST",
@@ -101,14 +101,14 @@ class AddJobBoard extends Component {
                     </Field>
 
                     <Field onSubmit={this.handleSubmit}>
-                        <Label>Employee</Label>
+                        <Label>First Name</Label>
                         <Control>
                             <Input 
                             type="text" 
-                            placeholder="Employee"
-                            onChange={this.handleEmployeeChange}
-                            name="employee"
-                            value={this.state.employee}
+                            placeholder="firstname"
+                            onChange={this.handleFirstNameChange}
+                            name="firstname"
+                            value={this.state.firstname}
                             />
                         </Control>
                     </Field>

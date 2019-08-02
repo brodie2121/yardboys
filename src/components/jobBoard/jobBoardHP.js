@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import { Card, Table } from 'bloomer';
+import { Card, Table, Title } from 'bloomer';
 
 class JobBoardHP extends Component {
     state = {
@@ -35,7 +35,7 @@ class JobBoardHP extends Component {
 
         return(
             <>
-                <h2> Today's Jobs</h2>
+                <Title isSize={3}>Today's Jobs</Title>
                 <ul>
                     {jobs.map(job => {
                         return ( 
@@ -54,7 +54,7 @@ class JobBoardHP extends Component {
                                             <tr>
                                                 <td>{job.date}</td>
                                                 <td>{job.jobtype}</td>
-                                                <td>{job.employee}</td>
+                                                <td>{job.firstname}</td>
                                                 <td>{job.comments}</td>
                                             </tr>
                                         </tbody>

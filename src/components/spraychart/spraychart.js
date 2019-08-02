@@ -36,31 +36,41 @@ async componentDidMount() {
         return (
             <div>
                 <Table isBordered isStriped isNarrow>
-                    <thead>
-                        <tr className='is-selected'>
-                            <th>Date Applied</th>
-                            <th>id</th>
-                            <th>Employee</th>
-                            <th>Holes Treated</th>
-                            <th>Length of Cut</th>
-                            <th>Chemicals</th>
-                            <th>Rate Applied</th>
-                            <th>Total Gallons</th>
-                            <th>Spray Rig Used</th>
-                            <th>Pest of Disease Controlled</th>
-                        </tr>
-                    </thead>
                     <tbody>
                         <tr>
+                            <td className='is-selected'>Date Applied</td>
                             <td>{spraychart.dateapplied}</td>
-                            <td>{spraychart.id}</td>
+                        </tr>
+                        <tr>
+                            <td className='is-selected'>Employee</td>
                             <td>{spraychart.employee_id}</td>
+                        </tr>
+                        <tr>
+                            <td className='is-selected'>Holes Treated</td>
                             <td>{spraychart.holestreated}</td>
+                        </tr>
+                        <tr>
+                            <td className='is-selected'>Length of Cut</td>
                             <td>{spraychart.lengthofcuttreated}</td>
+                        </tr>
+                        <tr>
+                            <td className='is-selected'>Chemicals</td>
                             <td>{spraychart.chemicalsbeingused}</td>
+                        </tr>
+                        <tr>
+                            <td className='is-selected'>Rate Applied</td>
                             <td>{spraychart.rateapplied}</td>
+                        </tr>
+                        <tr>
+                            <td className='is-selected'>Total Gallons</td>
                             <td>{spraychart.totalgallons}</td>
+                        </tr>
+                        <tr>
+                            <td className='is-selected'>Spray Rig Used</td>
                             <td>{spraychart.sprayrig}</td>
+                        </tr>
+                        <tr>
+                            <td className='is-selected'>Pest of Disease Controlled</td>
                             <td>{spraychart.pestordiseasecontrolled}</td>
                         </tr>
                 </tbody>

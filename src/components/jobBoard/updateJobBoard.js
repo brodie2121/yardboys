@@ -4,7 +4,7 @@ class UpdateJobBoard extends Component {
   state = {
     date : "",
     jobtype : "",
-    employee : "",
+    firstname : "",
     comments : "",
     jobboard_id : null
   };
@@ -15,7 +15,7 @@ class UpdateJobBoard extends Component {
     this.setState({
         date : job.date,
         jobtype : job.jobtype,
-        employee : job.employee,
+        firstname : job.firstname,
         comments : job.comments,
         job_id : job.job_id
 
@@ -42,9 +42,9 @@ class UpdateJobBoard extends Component {
         });
     };
 
-    handleEmployeeChange = e => {
+    handleFirstNameChange = e => {
         this.setState({
-            employee: e.target.value
+            firstname: e.target.value
         });
     };
 
@@ -60,9 +60,9 @@ class UpdateJobBoard extends Component {
     const jobId = this.props.match.params.job_id;
     const date = this.state.date;
     const jobtype = this.state.jobtype;
-    const employee = this.state.employee;
+    const firstname = this.state.firstname;
     const comments = this.state.comments;
-    const data = { date, jobtype, employee, comments };
+    const data = { date, jobtype, firstname, comments };
     const url = `http://localhost:3000/jobboard/jobs/update/${jobId}`;
     const response = fetch(url, {
       method: "PUT",
@@ -91,7 +91,7 @@ class UpdateJobBoard extends Component {
         <form onSubmit={this.handleSubmit}>
             <label> Date: </label>
             <input
-                type="text"
+                type="date"
                 onChange={this.handleDateChange}
                 name="date"
                 value={this.state.date}
@@ -103,12 +103,12 @@ class UpdateJobBoard extends Component {
                 name="jobtype"
                 value={this.state.jobtype}
             />
-            <label> Employee: </label>
+            <label> First Name: </label>
             <input
                 type="text"
-                onChange={this.handleEmployeeChange}
-                name="employee"
-                        value={this.state.employee}
+                onChange={this.handleFirstNameChange}
+                name="firstname"
+                        value={this.state.firstname}
             />
             <label> Comments: </label>
             <input

@@ -9,7 +9,7 @@ class Jobs extends Component {
 
 async componentDidMount() {
     const job = await this.loadData();
-    console.log("loadData");
+    console.log("job", job);
     this.setState({
         job
     });
@@ -47,7 +47,7 @@ async componentDidMount() {
                         <tr>
                             <td>{job.date}</td>
                             <td>{job.jobtype}</td>
-                            <td>{job.employee}</td>
+                            <td>{job.firstname}</td>
                             <td>{job.comments}</td>
                         </tr>
                 </tbody>

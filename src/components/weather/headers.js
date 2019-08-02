@@ -1,10 +1,11 @@
 import React from "react";
+import { Title } from 'bloomer';
 
 function Headers(props) {
   return (
     <div>
-      <h1>{props.temp}</h1>
-      <h1>{props.isRaining}</h1>
+      <Title isSize={1}>{props.temp}</Title>
+      <Title isSize={4}>{props.isRaining}</Title>
     </div>
   );
 }
