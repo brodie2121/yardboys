@@ -8,7 +8,6 @@ import {
 	Button,
 	Input
   } from "bloomer";
-  import { Checkbox } from "bloomer/lib/elements/Form/Checkbox";
 
 class EmployeeRegister extends Component {
 	state = {

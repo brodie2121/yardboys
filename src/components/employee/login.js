@@ -1,4 +1,3 @@
-
 import React, { Component } from "react";
 import { Link, Redirect } from "react-router-dom";
 import { Card, Field, Label, Control, Button, Input } from "bloomer";
@@ -60,6 +59,12 @@ class EmployeeLogin extends Component {
             console.log("there has been login error", err);
         }
     };
+  
+    saveToLocal() {
+      const local = this.state.login;
+      localStorage.setItem("login", JSON.stringify(local));
+    }
+
   render() {
     const { login } = this.state;
     return (
@@ -99,7 +104,7 @@ class EmployeeLogin extends Component {
         <p>
           Not signed up yet? <Link to="/signup">Register here!</Link>
         </p>
-        {!!login ? <Redirect to="/jobboard/all" /> : ""}
+        {!!login ? <Redirect to="/" /> : ""}
       </Card>
     );
   }

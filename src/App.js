@@ -25,8 +25,10 @@ import YourCourse from './components/yourCourse/course';
 import UpdateCourse from './components/yourCourse/updateCourse';
 import Weather from './components/weather/weather';
 import HomePage from './components/home';
+import Logout from "./components/employee/logout";
 
 class App extends Component {
+
   state = {
     isLoggedIn: false,
     id: 0,
@@ -40,10 +42,24 @@ class App extends Component {
 		course_id : ""
   };
 
-  handleLoginState = employee => {
-    const { login, id, firstname, lastname, phone, email, experience, datestarted, adminstatus, course_id } = employee;
-    this.setState({
-      isLoggedIn: login,
+  componentDidMount() {
+    const userStatus = JSON.parse(window.sessionStorage.getItem("user"));
+    // console.log("this is userstatus: ", userStatus);
+    // console.log("this is login:", login);
+    if (!!userStatus) {
+      this.setInitialState(userStatus);
+    }
+  }
+
+
+  handleLoginState = async employee => {
+    this.setInitialState(employee);
+    window.sessionStorage.setItem("employee", JSON.stringify(employee));
+  };
+  
+  setInitialState = employee => {
+    const {
+      login,
       id,
       firstname,
       lastname,
@@ -53,11 +69,42 @@ class App extends Component {
       datestarted,
       adminstatus,
       course_id
+    } = employee;
+
+    this.setState({
+      id,
+      login,
+      firstname,
+      lastname,
+      phone,
+      email,
+      experience,
+      datestarted,
+      adminstatus,
+      course_id
+    })
+  }
+
+  handleLogoutState = () => {
+    window.sessionStorage.clear();
+    console.log("logout handler fired");
+    this.setState({
+      login: false,
+      id: 0,
+      firstname: "",
+      lastname: "",
+      phone: "",
+      email: "",
+      experience: "",
+      datestarted: "",
+      adminstatus: "",
+      course_id: "",
+      employee: {}
     });
   };
 
   render() {
-    const { isLoggedIn } = this.state;
+    const { login } = this.state;
     return (
       <Router>
         <Route path="/" component={Navbar} />
