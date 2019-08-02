@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import AddJobBoard from './addJobBoard';
 
-
 class JobBoardHome extends Component {
     state = {
         jobs: []
