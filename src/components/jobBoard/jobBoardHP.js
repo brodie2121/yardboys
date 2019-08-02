@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import { Table } from 'bloomer';
+import { Card, Table } from 'bloomer';
 
 class JobBoardHP extends Component {
     state = {
@@ -40,24 +40,26 @@ class JobBoardHP extends Component {
                     {jobs.map(job => {
                         return ( 
                             <li key={`job-${job.id}`}>
-                                <Table isBordered isStriped isNarrow>
-                                    <thead>
-                                        <tr>
-                                            <th>Date</th>
-                                            <th>Job</th>
-                                            <th>Employee</th>
-                                            <th>Comments</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr className='is-selected'>
-                                            <td>{job.date}</td>
-                                            <td>{job.jobtype}</td>
-                                            <td>{job.employee}</td>
-                                            <td>{job.comments}</td>
-                                        </tr>
-                                </tbody>
-                            </Table> 
+                                <Card>
+                                    <Table isBordered isStriped isNarrow>
+                                        <thead>
+                                            <tr>
+                                                <th>Date</th>
+                                                <th>Job</th>
+                                                <th>Employee</th>
+                                                <th>Comments</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr className='is-selected'>
+                                                <td>{job.date}</td>
+                                                <td>{job.jobtype}</td>
+                                                <td>{job.employee}</td>
+                                                <td>{job.comments}</td>
+                                            </tr>
+                                        </tbody>
+                                    </Table> 
+                                </Card>
                             </li>
                         );
                     })}
