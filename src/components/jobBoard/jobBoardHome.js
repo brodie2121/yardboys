@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import AddJobBoard from './addJobBoard';
+import { Title } from 'bloomer';
 
 class JobBoardHome extends Component {
     state = {
@@ -36,12 +37,12 @@ class JobBoardHome extends Component {
         return(
             <>
             <div className='home-photo'></div>
-                <h2>Job Board Home</h2>
+            <Title isSize={3}>Job Board Home</Title>
                 <ul>
                     {jobs.map(job => {
                         return ( 
                             <li key={`job-${job.id}`}>
-                                <Link to={`/jobs/${job.id}`}>{job.date} {job.firstname} {job.jobtype} {job.comments} </Link>
+                                <Link to={`/jobs/${job.id}`}>{job.date} {job.firstname}  </Link>
                             </li>
                         );
                     })}
