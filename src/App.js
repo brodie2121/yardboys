@@ -43,14 +43,11 @@ class App extends Component {
   };
 
   componentDidMount() {
-    const userStatus = JSON.parse(window.sessionStorage.getItem("user"));
-    // console.log("this is userstatus: ", userStatus);
-    // console.log("this is login:", login);
-    if (!!userStatus) {
-      this.setInitialState(userStatus);
+    const employeeStatus = JSON.parse(window.sessionStorage.getItem("employee"));
+    if (!!employeeStatus) {
+      this.setInitialState(employeeStatus);
     }
   }
-
 
   handleLoginState = async employee => {
     this.setInitialState(employee);
@@ -105,6 +102,7 @@ class App extends Component {
 
   render() {
     const { login } = this.state;
+        window.sessionStorage.setItem("loggedInStatus", login);
     return (
       <Router>
         <Route path="/" component={Navbar} />

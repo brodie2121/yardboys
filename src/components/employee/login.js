@@ -102,7 +102,7 @@ class EmployeeLogin extends Component {
           </Control>
         </Field>
         <p>
-          Not signed up yet? <Link to="/signup">Register here!</Link>
+          Not signed up yet? <Link to="/employee/register">Register here!</Link>
         </p>
         {!!login ? <Redirect to="/" /> : ""}
       </Card>
