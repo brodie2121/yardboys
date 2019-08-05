@@ -4,8 +4,7 @@ import AddJobBoard from './addJobBoard';
 import { Box, Table, Title } from 'bloomer';
 
 const listyle = {
-    textAlign: "center",
-    fontColor: "black"
+    textAlign: "center"
 }
 
 class JobBoardHome extends Component {
@@ -48,7 +47,8 @@ class JobBoardHome extends Component {
                 <ul>
                     {jobs.map(job => {
                         return ( 
-                                <Table isBordered isStriped >
+                            
+                                <Table isBordered isStriped isNarrow>
                                     <thead>
                                         <tr>
                                             <th>
@@ -59,6 +59,7 @@ class JobBoardHome extends Component {
                                         </tr>
                                     </thead>
                                 </Table>
+
                         );
                     })}
                 </ul>
