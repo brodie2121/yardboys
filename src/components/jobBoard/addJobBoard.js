@@ -77,7 +77,6 @@ class AddJobBoard extends Component {
                 <Card>
                 <Title isSize={5}>Add Job Board</Title>
                     <Field onSubmit={this.handleSubmit}>
-                        <Label>Date</Label>
                         <Control>
                             <Input 
                             type="date" 
@@ -90,7 +89,6 @@ class AddJobBoard extends Component {
                     </Field>
 
                     <Field onSubmit={this.handleSubmit}>
-                        <Label>Job</Label>
                         <Control>
                             <Input 
                             type="text" 
@@ -103,20 +101,18 @@ class AddJobBoard extends Component {
                     </Field>
 
                     <Field onSubmit={this.handleSubmit}>
-                        <Label>First Name</Label>
                         <Control>
                             <Input 
                             type="text" 
-                            placeholder="firstname"
+                            placeholder="Full Name"
                             onChange={this.handleFirstNameChange}
-                            name="firstname"
+                            name="Firstname"
                             value={this.state.firstname}
                             />
                         </Control>
                     </Field>
 
                     <Field onSubmit={this.handleSubmit}>
-                        <Label>Comments</Label>
                         <Control>
                             <TextArea 
                                 placeholder={'Comments '} 

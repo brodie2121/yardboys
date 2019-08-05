@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import AddJobBoard from './addJobBoard';
-import { Title } from 'bloomer';
+import { Table, Title } from 'bloomer';
 
 class JobBoardHome extends Component {
     state = {
@@ -25,11 +25,11 @@ class JobBoardHome extends Component {
 
     handleChange = async event => {
         const changeValue = await this.setState({
-          jobs: event.target.value
+            jobs: event.target.value
         });
         console.log(changeValue);
         return changeValue;
-      };
+    };
     
     render() {
         const { jobs } = this.state;
@@ -42,9 +42,13 @@ class JobBoardHome extends Component {
                 <ul>
                     {jobs.map(job => {
                         return ( 
-                            <li key={`job-${job.id}`}>
-                                <Link to={`/jobs/${job.id}`}>{job.date} {job.fullname}  </Link>
-                            </li>
+                            <Table isBordered isStriped isNarrow>
+                                <thead>
+                                    <tr className='is-selected'>
+                                        <th><Link to={`/jobs/${job.id}`}>{job.date} {job.fullname}  </Link> </th>
+                                    </tr>
+                                </thead>
+                            </Table>
                         );
                     })}
                 </ul>

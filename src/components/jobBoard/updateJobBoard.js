@@ -18,7 +18,6 @@ class UpdateJobBoard extends Component {
         employee : job.employee,
         comments : job.comments,
         job_id : job.job_id
-
     });
   }
 
@@ -53,7 +52,6 @@ class UpdateJobBoard extends Component {
             comments: e.target.value
         });
     };
-
 
   handleSubmit = e => {
     e.preventDefault();
