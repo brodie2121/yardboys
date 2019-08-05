@@ -45,16 +45,15 @@ class JobBoardHP extends Component {
                                         <thead>
                                             <tr className='is-selected'>
                                                 <th>Date</th>
-                                                <th>Job</th>
                                                 <th>Employee</th>
+                                                <th>Job</th>
                                                 <th>Comments</th>
                                             </tr>
                                         </thead>
                                         <tbody>
                                             <tr>
-                                                <td>{job.date}</td>
+                                                <td>{job.date}</td>\                          <td>{job.firstname}</td>
                                                 <td>{job.jobtype}</td>
-                                                <td>{job.firstname}</td>
                                                 <td>{job.comments}</td>
                                             </tr>
                                         </tbody>

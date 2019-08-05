@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Link } from 'react-router-dom';
-import { Table } from 'bloomer';
+import { Table, Title } from 'bloomer';
 
 class Jobs extends Component {
     state = {
@@ -34,20 +34,21 @@ async componentDidMount() {
         const { job } = this.state;
         return (
             <div>
+                <Title isSize={3}>Job Details</Title>
                 <Table isBordered isStriped isNarrow>
                     <thead>
-                        <tr>
+                        <tr className='is-selected'>
                             <th>Date</th>
-                            <th>Job</th>
                             <th>Employee</th>
+                            <th>Job</th>                         
                             <th>Comments</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
                             <td>{job.date}</td>
-                            <td>{job.jobtype}</td>
                             <td>{job.firstname}</td>
+                            <td>{job.jobtype}</td>
                             <td>{job.comments}</td>
                         </tr>
                 </tbody>
