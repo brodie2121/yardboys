@@ -6,7 +6,7 @@ class UpdateEmployee extends Component {
     phone: "",
     email: "",
     experience: "", 
-    dateStarted: "",
+    datestarted: "",
     course_id: "",
     employee_id: null
   };
@@ -19,7 +19,7 @@ class UpdateEmployee extends Component {
         phone: employee.phone,
         email: employee.email,
         experience: employee.experience, 
-        dateStarted: employee.datestarted,
+        datetarted: employee.datestarted,
         course_id: employee.course_id,
         employee_id: employee.employee_id
     });

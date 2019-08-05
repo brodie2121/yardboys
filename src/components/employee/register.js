@@ -82,7 +82,6 @@ class EmployeeRegister extends Component {
 			},
 			body: JSON.stringify(formData)
 		});
-		console.log("Response is... ", response);
 		if (response.ok) {
 			this.setState({
 				accountCreated: true

@@ -123,6 +123,7 @@ class UpdateSpraychart extends Component {
       .catch(err => {
         console.log(err);
     });
+    console.log("response", response);
   };
   
   render() {
