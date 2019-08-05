@@ -23,7 +23,6 @@ import EmployeeHome from './components/employee/employeehome';
 import CourseHome from './components/yourCourse/courseHome';
 import YourCourse from './components/yourCourse/course';
 import UpdateCourse from './components/yourCourse/updateCourse';
-import Weather from './components/weather/weather';
 import HomePage from './components/home';
 import Logout from "./components/employee/logout";
 

@@ -11,8 +11,7 @@ import {
 
 class EmployeeRegister extends Component {
 	state = {
-		firstname : "",
-		lastname : "", 
+		fullname : "", 
 		phone : "",
 		email : "",
 		password : "",
@@ -22,15 +21,9 @@ class EmployeeRegister extends Component {
 		course_id : ""
 	};
 
-	handleFirstName = e => {
+	handleFullName = e => {
 		this.setState({
-			firstname: e.target.value
-		});
-	};
-  
-	handleLastName = e => {
-		this.setState({
-			lastname: e.target.value
+			fullname: e.target.value
 		});
 	};
   
@@ -103,24 +96,13 @@ class EmployeeRegister extends Component {
 		return (
 		  <Card>
 			<Field>
-			  <Label> First Name </Label>
+			  <Label> Full Name </Label>
 			  <Control>
 				<Input
 				  type="text"
 				  placeholder="Steve"
-				  onChange={this.handleFirstName}
-				  value={this.state.firstname}
-				/>
-			  </Control>
-			</Field>
-			<Field>
-			  <Label> Last Name </Label>
-			  <Control>
-				<Input
-				  type="text"
-				  placeholder="Jobs"
-				  onChange={this.handleLastName}
-				  value={this.state.lastname}
+				  onChange={this.handleFullName}
+				  value={this.state.fullname}
 				/>
 			  </Control>
 			</Field>

@@ -39,6 +39,7 @@ class JobBoardHome extends Component {
             <div className='home-photo'></div>
             <Title isSize={3}>Job Board Home</Title>
             <AddJobBoard />
+            <Title isSize={3}>Employees Working</Title>
                 <ul>
                     {jobs.map(job => {
                         return ( 

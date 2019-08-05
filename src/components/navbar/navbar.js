@@ -17,14 +17,13 @@ const Menu = styled.div`
     font-size: 20px;
     list-style-type: none;
     margin-left: 30px;
-    color: black;
   }
 
   NavLink {
     text-decoration: none;
     text-transform: uppercase;
     font-size: 20px;
-    color: black;
+    font-color: black;
 
     &:hover {
       color: white;

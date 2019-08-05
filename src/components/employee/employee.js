@@ -34,8 +34,7 @@ async componentDidMount() {
             <div>
                 <h4>Yard Boy Info</h4>
                 <p>{employee.id}</p>
-                <p>{employee.firstname}</p>
-                <p>{employee.lastname}</p>
+                <p>{employee.fullname}</p>
                 <p>{employee.phone}</p>
                 <p>{employee.email}</p>
                 <p>{employee.experience}</p>
