@@ -7,7 +7,7 @@ class HomePage extends Component {
   render() {
     return (
             <>
-            <div className='home-photo'></div>
+              <div className='home-photo'></div>
                 <Weather />
                 <JobBoardHP />
             </>

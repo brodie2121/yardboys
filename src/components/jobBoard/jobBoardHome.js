@@ -3,6 +3,11 @@ import { Link } from 'react-router-dom';
 import AddJobBoard from './addJobBoard';
 import { Box, Table, Title } from 'bloomer';
 
+const listyle = {
+    textAlign: "center",
+    fontColor: "black"
+}
+
 class JobBoardHome extends Component {
     state = {
         jobs: []
@@ -43,19 +48,17 @@ class JobBoardHome extends Component {
                 <ul>
                     {jobs.map(job => {
                         return ( 
-                            <Box>
-                                <Table isBordered isStriped isNarrow>
+                                <Table isBordered isStriped >
                                     <thead>
-                                        <tr className='is-selected'>
+                                        <tr>
                                             <th>
-                                                <li key={`job-${job.id}`}>
+                                                <li style={listyle} key={`job-${job.id}`}>
                                                     <Link to={`/jobs/${job.id}`}> {job.fullname}  </Link>
                                                 </li>
                                             </th>
                                         </tr>
                                     </thead>
                                 </Table>
-                            </Box>
                         );
                     })}
                 </ul>

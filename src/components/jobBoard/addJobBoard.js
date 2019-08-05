@@ -11,6 +11,17 @@ import {
   } from "bloomer";
   import 'bulma';
 
+  const boxstyle = {
+    background: "grey",
+    fontSize: "4rem",
+    textAlign: "center",
+    margin: "20px",
+  };
+
+  const cardstyle = {
+      padding: "1px",
+      background: "lightblue",
+  }
 class AddJobBoard extends Component {
     state = {
         date : "",
@@ -74,8 +85,8 @@ class AddJobBoard extends Component {
     render() {
         return(
             <>
-                <Box>
-                    <Card>
+                <Box style={boxstyle}>
+                    <Card style={cardstyle}>
                         <Title isSize={5}>Add Job Board</Title>
                             <Field onSubmit={this.handleSubmit}>
                                 <Control>
