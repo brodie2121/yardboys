@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Route } from "react-router-dom";
 import './App.css';
 import Navbar from './components/navbar/navbar';
 import SprayCharts from './components/spraychart/spraychart';
@@ -24,7 +24,7 @@ import CourseHome from './components/yourCourse/courseHome';
 import YourCourse from './components/yourCourse/course';
 import UpdateCourse from './components/yourCourse/updateCourse';
 import HomePage from './components/home';
-import Logout from "./components/employee/logout";
+
 
 class App extends Component {
 

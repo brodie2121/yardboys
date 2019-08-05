@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import AddJobBoard from './addJobBoard';
-import { Box, Table, Title } from 'bloomer';
+import { Table, Title } from 'bloomer';
 
 const listyle = {
     textAlign: "center"

@@ -31,6 +31,7 @@ class AddJobType extends Component {
             },
             body: JSON.stringify(data)
         })
+        console.log("response", response)
         .then(response => {
             if (response.status === 200) {
                 this.props.history.push("/all");

@@ -17,9 +17,6 @@ class Modal extends Component {
           <p>
             High: {this.props.high} - Low: {this.props.low}
           </p>
-          <p>
-            {this.props.weather} <img src={this.props.iconUrl} />
-          </p>
         </div>
         <div className="modal-footer">
           <a

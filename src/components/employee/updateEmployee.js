@@ -2,11 +2,9 @@ import React, { Component } from "react";
 
 class UpdateEmployee extends Component {
   state = {
-    firstName: "",
-    lastName: "",
+    fullname: "",
     phone: "",
     email: "",
-    password: "",
     experience: "", 
     dateStarted: "",
     course_id: "",
@@ -17,11 +15,9 @@ class UpdateEmployee extends Component {
     const employee = await this.loadData();
     console.log(employee);
     this.setState({
-        firstName: employee.firstname,
-        lastName: employee.lastname,
+        fullname: employee.fullname,
         phone: employee.phone,
         email: employee.email,
-        password: employee.password,
         experience: employee.experience, 
         dateStarted: employee.datestarted,
         course_id: employee.course_id,
@@ -37,15 +33,9 @@ class UpdateEmployee extends Component {
         return data;
     };
 
-    handleFirstNameChange = e => {
+    handleFullNameChange = e => {
         this.setState({
-            firstName: e.target.value
-        });
-    };
-
-    handleLastNameChange = e => {
-        this.setState({
-            lastName: e.target.value
+            fullname: e.target.value
         });
     };
 
@@ -61,12 +51,6 @@ class UpdateEmployee extends Component {
         });
     };
 
-    handlePasswordChange = e => {
-        this.setState({
-            password: e.target.value
-        });
-    };
-
     handleExperienceChange = e => {
         this.setState({
             experience: e.target.value
@@ -75,7 +59,7 @@ class UpdateEmployee extends Component {
 
     handleDateStartedChange = e => {
         this.setState({
-            dateStarted: e.target.value
+            datestarted: e.target.value
         });
     };
 
@@ -88,15 +72,13 @@ class UpdateEmployee extends Component {
   handleSubmit = e => {
     e.preventDefault();
     const employeeId = this.props.match.params.employee_id;
-    const firstName = this.state.firstName;
-    const lastName = this.state.lastName;
+    const fullname = this.state.fullname;
     const phone = this.state.phone;
     const email = this.state.email;
-    const password = this.state.password;
     const experience = this.state.experience;
-    const dateStarted = this.state.dateStarted;
+    const datestarted = this.state.datestarted;
     const course_id = this.state.course_id;
-    const data = { firstName, lastName, phone, email, password, experience, dateStarted ,course_id };
+    const data = { fullname, phone, email, experience, datestarted ,course_id };
     const url = `http://localhost:3000/employee/employees/update/${employeeId}`;
     const response = fetch(url, {
       method: "PUT",
@@ -105,7 +87,6 @@ class UpdateEmployee extends Component {
         "Content-Type": "application/json"
         
       },
-      
       body: JSON.stringify(data)
     })
       .then(response => {
@@ -116,6 +97,7 @@ class UpdateEmployee extends Component {
       .catch(err => {
         console.log(err);
     });
+    console.log("response", response);
   };
   
   render() {
@@ -123,19 +105,12 @@ class UpdateEmployee extends Component {
       <>
         <h2>{this.state.employeeId}</h2>
         <form onSubmit={this.handleSubmit}>
-            <label> First Name: </label>
+            <label> Full Name: </label>
             <input
                 type="text"
-                onChange={this.handleFirstNameChange}
-                name="firstName"
-                value={this.state.firstName}
-            />
-            <label> Last Name: </label>
-            <input
-                type="text"
-                onChange={this.handleLastNameChange}
-                name="lastName"
-                value={this.state.lastName}
+                onChange={this.handleFullNameChange}
+                name="fullname"
+                value={this.state.fullname}
             />
             <label> Phone Number: </label>
             <input 
@@ -160,10 +135,10 @@ class UpdateEmployee extends Component {
             />
             <label> Date Started: </label>
             <input
-                type="text"
+                type="date"
                 onChange={this.handleDateStartedChange}
-                name="dateStarted"
-                value={this.state.dateStarted}
+                name="datestarted"
+                value={this.state.datestarted}
             />
             <label> Course ID: </label>
             <input

@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
 import { Card, Table, Title } from 'bloomer';
 
 class JobBoardHP extends Component {

@@ -117,7 +117,7 @@ class UpdateSpraychart extends Component {
     })
       .then(response => {
         if (response.status === 200) {
-          this.props.history.push("/");
+          this.props.history.push("/spraychart/all");
         }
       })
       .catch(err => {
@@ -132,7 +132,7 @@ class UpdateSpraychart extends Component {
         <form onSubmit={this.handleSubmit}>
             <label> Date Applied: </label>
             <input
-                type="text"
+                type="date"
                 onChange={this.handleDateAppliedChange}
                 name="dateApplied"
                 value={this.state.dateApplied}

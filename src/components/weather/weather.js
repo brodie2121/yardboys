@@ -22,7 +22,7 @@ class Weather extends Component {
   componentDidMount(){
     this.getCityWeather('Chattanooga');
     const elems = document.querySelectorAll('.modal');
- 
+    console.log("elems", elems)
   }
 
   componentDidUpdate(prevProps,prevState){

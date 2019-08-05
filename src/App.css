@@ -1,16 +1,7 @@
 .App {
   text-align: center;
 }
-html,
-body {
-  background-image:url("./images/fwy.JPG");
-  height: 100%; 
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  position: relative;
-  
-}
+
 .home-photo {
   background-image: url("./images/mower.JPG");
   height: 100%; 

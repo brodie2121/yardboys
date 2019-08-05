@@ -1,10 +1,9 @@
-
 import React, { Component } from 'react';
 import { NavLink } from 'react-router-dom';
 import ResponsiveMenu from 'react-responsive-navbar';
 import styled from 'styled-components';
 import { FaAngleDoubleDown, FaAngleDoubleUp   } from 'react-icons/fa';
-import { Box } from 'bloomer';
+
 const Menu = styled.div`
   border-bottom: 2px solid black;
 
@@ -17,13 +16,14 @@ const Menu = styled.div`
     font-size: 20px;
     list-style-type: none;
     margin-left: 30px;
+    color: balck;
   }
 
   NavLink {
     text-decoration: none;
     text-transform: uppercase;
     font-size: 20px;
-    font-color: black;
+    color: black;
 
     &:hover {
       color: white;
