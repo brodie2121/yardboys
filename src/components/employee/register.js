@@ -9,7 +9,7 @@ import {
 	Input
   } from "bloomer";
 
-class EmployeeRegister extends Component {
+class Register extends Component {
 	state = {
 		fullname : "", 
 		phone : "",
@@ -153,7 +153,7 @@ class EmployeeRegister extends Component {
 			  <Label> Date Started </Label>
 			  <Control>
 				<Input
-				  type="text"
+				  type="date"
 				  placeholder="date started"
 				  onChange={this.handleDateStarted}
 				  value={this.state.datestarted}
@@ -192,9 +192,9 @@ class EmployeeRegister extends Component {
 				<Button isLink>Cancel</Button>
 			  </Control>
 			</Field>
-			{!!EmployeeRegistered ? <Redirect to="/jobboard/all" /> : ""}
+			{!!EmployeeRegistered ? <Redirect to="/home" /> : ""}
 		  </Card>
 		);
 	  }
 	}
-export default EmployeeRegister;
+export default Register;

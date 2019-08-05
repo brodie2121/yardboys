@@ -3,7 +3,7 @@ import { Link, Redirect } from "react-router-dom";
 import { Card, Field, Label, Control, Button, Input } from "bloomer";
 
 
-class EmployeeLogin extends Component {
+class Login extends Component {
   state = {
     email: "",
     password: "",
@@ -38,17 +38,16 @@ class EmployeeLogin extends Component {
             console.log('this is login response data: ', data)
             const { login } = data;
             if (!!login) {
-                const { id, firstName, lastName, phone, email, experience, dateStarted, adminStatus, course_id } = data;
+                const { id, fullname, phone, email, experience, datestarted, adminstatus, course_id } = data;
                 this.props.handleLoginState({
                     login,
                     id,
-                    firstName,
-                    lastName,
+                    fullname,
                     phone,
                     email,
                     experience,
-                    dateStarted,
-                    adminStatus,
+                    datestarted,
+                    adminstatus,
                     course_id
                 });
             }
@@ -110,4 +109,4 @@ class EmployeeLogin extends Component {
   }
 }
 
-export default EmployeeLogin;
+export default Login;

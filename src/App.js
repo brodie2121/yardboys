@@ -14,8 +14,8 @@ import UpdateJobType from './components/jobType/updateJobType';
 import JobTypes from './components/jobType/jobType';
 import AddJobType from './components/jobType/addJobType';
 import JobTypeHome from './components/jobType/jobTypeHome';
-import EmployeeLogin from './components/employee/login';
-import EmployeeRegister from './components/employee/register';
+import Login from './components/employee/login';
+import Register from './components/employee/register';
 import UpdateEmployee from './components/employee/updateEmployee';
 import JobBoardDate from './components/jobBoard/jobBoardDate';
 import Employees from './components/employee/employee';
@@ -31,14 +31,14 @@ class App extends Component {
   state = {
     isLoggedIn: false,
     id: 0,
-    firstname: "",
-    lastname: "",
+    fullname: "",
 		phone : "",
 		email : "",
 		experience : "",
 		datestarted : "",
 		adminstatus : "",
-		course_id : ""
+    course_id : "",
+    employee: {}
   };
 
   componentDidMount() {
@@ -57,8 +57,7 @@ class App extends Component {
     const {
       login,
       id,
-      firstname,
-      lastname,
+      fullname,
       phone,
       email,
       experience,
@@ -70,8 +69,7 @@ class App extends Component {
     this.setState({
       id,
       login,
-      firstname,
-      lastname,
+      fullname,
       phone,
       email,
       experience,
@@ -87,8 +85,7 @@ class App extends Component {
     this.setState({
       login: false,
       id: 0,
-      firstname: "",
-      lastname: "",
+      fullname: "",
       phone: "",
       email: "",
       experience: "",
@@ -110,10 +107,10 @@ class App extends Component {
         <Route 
           path="/employee/login"
           render={props => (
-              <EmployeeLogin
+              <Login
                 {...props}
                 employee={this.state}
-                handleEmployeeLoginState={this.handleEmployeeLoginState}
+                handleLoginState={this.handleLoginState}
               /> 
             )} 
           />
@@ -130,7 +127,7 @@ class App extends Component {
         <Route path="/jobtype/post/add" exact component={AddJobType} />
         <Route path="/jobtypes/:jobtype_id?" component={JobTypes} />
         <Route path="/jobtypes/update/:jobtype_id?" component={UpdateJobType} />
-        <Route path="/employee/register" component={EmployeeRegister} />
+        <Route path="/employee/register" component={Register} />
         <Route path="/employees/update/:employee_id?" component={UpdateEmployee} />
         <Route path="/employee/all" component={EmployeeHome} />
         <Route path="/employees/:employee_id?" component={Employees} />
