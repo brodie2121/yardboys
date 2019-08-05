@@ -24,6 +24,10 @@ class UpdateEmployee extends Component {
         employee_id: employee.employee_id
     });
   }
+  
+    componentDidUpdate() {
+      console.log("Updated!");
+  }
 
     loadData = async () => {
         const employeeId = this.props.match.params.employee_id;
