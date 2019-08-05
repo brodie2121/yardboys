@@ -4,9 +4,8 @@ import { NavLink } from 'react-router-dom';
 import ResponsiveMenu from 'react-responsive-navbar';
 import styled from 'styled-components';
 import { FaAngleDoubleDown, FaAngleDoubleUp   } from 'react-icons/fa';
-
+import { Box } from 'bloomer';
 const Menu = styled.div`
-  border-bottom: 2px solid black;
 
   ul {
     padding: 0;
@@ -40,6 +39,10 @@ const Menu = styled.div`
   }
 `;
 
+const boxstyle = {
+  padding: "0px",
+  margin: "20px"
+}
 class Navbar extends Component {
   render() {
     return (
@@ -51,12 +54,14 @@ class Navbar extends Component {
         smallMenuClassName="small-menu"
         menu={
             <Menu>
+              <Box style={boxstyle}>
                 <ul>
                     <li><NavLink to="/home">Home</NavLink></li>
                     <li><NavLink to="/jobboard/all">Job Board</NavLink></li>
                     <li><NavLink to="/spraychart/all">Spray Chart</NavLink></li>
                     <li><NavLink to="/employee/all">Yard Boys</NavLink></li>
                 </ul>
+              </Box>
             </Menu>
         } 
       />
