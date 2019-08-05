@@ -4,7 +4,7 @@ class UpdateJobBoard extends Component {
   state = {
     date : "",
     jobtype : "",
-    firstname : "",
+    employee : "",
     comments : "",
     jobboard_id : null
   };
@@ -15,7 +15,7 @@ class UpdateJobBoard extends Component {
     this.setState({
         date : job.date,
         jobtype : job.jobtype,
-        firstname : job.firstname,
+        employee : job.employee,
         comments : job.comments,
         job_id : job.job_id
 
@@ -42,9 +42,9 @@ class UpdateJobBoard extends Component {
         });
     };
 
-    handleFirstNameChange = e => {
+    handleemployeeChange = e => {
         this.setState({
-            firstname: e.target.value
+            employee: e.target.value
         });
     };
 
@@ -60,9 +60,9 @@ class UpdateJobBoard extends Component {
     const jobId = this.props.match.params.job_id;
     const date = this.state.date;
     const jobtype = this.state.jobtype;
-    const firstname = this.state.firstname;
+    const employee = this.state.employee;
     const comments = this.state.comments;
-    const data = { date, jobtype, firstname, comments };
+    const data = { date, jobtype, employee, comments };
     const url = `http://localhost:3000/jobboard/jobs/update/${jobId}`;
     const response = fetch(url, {
       method: "PUT",
@@ -76,7 +76,7 @@ class UpdateJobBoard extends Component {
     })
       .then(response => {
         if (response.status === 200) {
-          this.props.history.push("/");
+          this.props.history.push("/home");
         }
       })
       .catch(err => {
@@ -106,9 +106,9 @@ class UpdateJobBoard extends Component {
             <label> First Name: </label>
             <input
                 type="text"
-                onChange={this.handleFirstNameChange}
-                name="firstname"
-                        value={this.state.firstname}
+                onChange={this.handleemployeeChange}
+                name="employee"
+                        value={this.state.employee}
             />
             <label> Comments: </label>
             <input

@@ -38,16 +38,17 @@ class JobBoardHome extends Component {
             <>
             <div className='home-photo'></div>
             <Title isSize={3}>Job Board Home</Title>
+            <AddJobBoard />
                 <ul>
                     {jobs.map(job => {
                         return ( 
                             <li key={`job-${job.id}`}>
-                                <Link to={`/jobs/${job.id}`}>{job.date} {job.firstname}  </Link>
+                                <Link to={`/jobs/${job.id}`}>{job.date} {job.fullname}  </Link>
                             </li>
                         );
                     })}
                 </ul>
-                <AddJobBoard />
+
             </>
         );
     }

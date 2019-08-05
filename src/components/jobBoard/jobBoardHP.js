@@ -52,7 +52,8 @@ class JobBoardHP extends Component {
                                         </thead>
                                         <tbody>
                                             <tr>
-                                                <td>{job.date}</td>\                          <td>{job.firstname}</td>
+                                                <td>{job.date}</td>
+                                                <td>{job.fullname}</td>
                                                 <td>{job.jobtype}</td>
                                                 <td>{job.comments}</td>
                                             </tr>

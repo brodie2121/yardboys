@@ -34,7 +34,7 @@ class EmployeeHome extends Component {
                         console.log('employee', employee);
                         return ( 
                             <li key={`employee-${employee.id}`}>
-                                <Link to={`/employees/${employee.id}`}>{employee.firstname}</Link>
+                                <Link to={`/employees/${employee.id}`}>{employee.fullname}</Link>
                             </li>
                         );
                     })}

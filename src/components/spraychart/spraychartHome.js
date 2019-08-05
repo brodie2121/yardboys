@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import AddSpraychart from './addSpraychart';
+import { Title } from 'bloomer';
 
 class SpraychartHome extends Component {
     state = {
@@ -35,7 +36,7 @@ class SpraychartHome extends Component {
 
         return(
             <>
-                <h2>Spray Chart</h2>
+                <Title isSize={3}>Spray Chart Home</Title>
                 <ul>
                     {spraycharts.map(spraychart => {
                         console.log('spraychart', spraychart);

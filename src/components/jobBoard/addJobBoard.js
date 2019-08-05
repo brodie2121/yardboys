@@ -75,7 +75,7 @@ class AddJobBoard extends Component {
         return(
             <>
                 <Card>
-                <Title isSize={3}>Add Job Board</Title>
+                <Title isSize={5}>Add Job Board</Title>
                     <Field onSubmit={this.handleSubmit}>
                         <Label>Date</Label>
                         <Control>
@@ -127,7 +127,7 @@ class AddJobBoard extends Component {
                             />
                         </Control>
                     </Field>
-xs
+
                     <Field isGrouped>
                         <Control>
                             <Button iscolor="primary" onClick={this.handleSubmit}>
