@@ -31,7 +31,9 @@ class EmployeeHome extends Component {
       <div className="job__board">
         <div className="parallaxthree">
           <div className="ui container div-emp-table">
-            <Title isSize={3}>Employees</Title>
+            <Title style={{ color: "white" }} isSize={1}>
+              Employees
+            </Title>
             <table className="ui selectable celled table inverted">
               <thead>
                 <tr className="is-selected">

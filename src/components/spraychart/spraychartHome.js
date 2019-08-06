@@ -37,11 +37,10 @@ class SpraychartHome extends Component {
     return (
       <div className="job__board">
         <div className="parallaxTwo">
-          <Title isSize={1}>Spray Chart Home</Title>
-          <AddSpraychart />
-
           <div className="ui container div-emp-table">
-            <Title isSize={3}>Previous Spray Chart</Title>
+            <Title style={{ color: "white" }} isSize={1}>
+              Previous Spray Chart
+            </Title>
             <table className="ui selectable celled table inverted">
               <thead>
                 <tr className="is-selected">
@@ -72,7 +71,7 @@ class SpraychartHome extends Component {
               </tbody>
             </table>
           </div>
-          {this.state.admin === true && <AddSpraychart />}
+          <AddSpraychart />
         </div>
       </div>
     );

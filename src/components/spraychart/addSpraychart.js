@@ -1,5 +1,18 @@
 import React, { Component } from "react";
-import { Title } from "bloomer";
+import { Title, Card, Box, Field, Control, Input, Button } from "bloomer";
+
+const boxstyle = {
+  background: "black",
+  width: "50%",
+  fontSize: "4rem",
+  textAlign: "center",
+  margin: "0 auto"
+};
+const cardstyle = {
+  padding: "0px",
+  background: "white"
+};
+
 class AddSpraychart extends Component {
   state = {
     dateApplied: "",
@@ -113,82 +126,128 @@ class AddSpraychart extends Component {
   render() {
     return (
       <>
-        <Title isSize={1}>New Spray Chart</Title>
-        <form onSubmit={this.handleSubmit}>
-          <label> Date Applied: </label>
-          <input
-            style={{ color: "black" }}
-            type="date"
-            onChange={this.handleDateAppliedChange}
-            name="dateApplied"
-            value={this.state.dateApplied}
-          />
-          <label> Emoloyee Id </label>
-          <input
-            style={{ color: "black" }}
-            type="text"
-            onChange={this.handleEmployee_idChange}
-            name="employee_id"
-            value={this.state.employee_id}
-          />
-          <label> Holes Treated: </label>
-          <input
-            style={{ color: "black" }}
-            type="text"
-            onChange={this.handleHolesTreatedChange}
-            name="holesTreated"
-            value={this.state.holesTreated}
-          />
-          <label> Length of Cut Treated: </label>
-          <input
-            style={{ color: "black" }}
-            type="text"
-            onChange={this.handleLengthOfCutTreatedChange}
-            name="lengthOfCutTreated"
-            value={this.state.lengthOfCutTreated}
-          />
-          <label> Chemicals Being Used: </label>
-          <input
-            style={{ color: "black" }}
-            type="text"
-            onChange={this.handleChemicalsBeingUsedChange}
-            name="chemicalsBeingUsed"
-            value={this.state.chemicalsBeingUsed}
-          />
-          <label> Rate Applied: </label>
-          <input
-            style={{ color: "black" }}
-            type="text"
-            onChange={this.handleRateAppliedChange}
-            name="rateApplied"
-            value={this.state.rateApplied}
-          />
-          <label> Total Gallons: </label>
-          <input
-            style={{ color: "black" }}
-            type="text"
-            onChange={this.handleTotalGallonsChange}
-            name="totalGallons"
-            value={this.state.totalGallons}
-          />
-          <label> Spray Rig: </label>
-          <input
-            style={{ color: "black" }}
-            type="text"
-            onChange={this.handleSprayRigChange}
-            name="sprayRig"
-            value={this.state.sprayRig}
-          />
-          <label> Pest or Disease Controlled: </label>
-          <input
-            style={{ color: "black" }}
-            type="text"
-            onChange={this.handlePestOrDiseaseControlledChange}
-            name="pestOrDiseaseControlled"
-            value={this.state.pestOrDiseaseControlled}
-          />
-          <input type="submit" value="Submit" />
-        </form>
+        <div className="form-container">
+          <Box style={boxstyle}>
+            <Card style={cardstyle}>
+              <Title isSize={1}>New Spray Chart</Title>
+              <Field onSubmit={this.handleSubmit}>
+                <Control>
+                  <label> Date Applied: </label>
+                  <Input
+                    style={{ color: "black" }}
+                    type="date"
+                    onChange={this.handleDateAppliedChange}
+                    name="dateApplied"
+                    value={this.state.dateApplied}
+                  />
+                </Control>
+              </Field>
+              <Field onSubmit={this.handleSubmit}>
+                <Control>
+                  <label> Emoloyee Id </label>
+                  <Input
+                    style={{ color: "black" }}
+                    type="text"
+                    onChange={this.handleEmployee_idChange}
+                    name="employee_id"
+                    value={this.state.employee_id}
+                  />
+                </Control>
+              </Field>
+              <Field onSubmit={this.handleSubmit}>
+                <Control>
+                  <label> Holes Treated: </label>
+                  <Input
+                    style={{ color: "black" }}
+                    type="text"
+                    onChange={this.handleHolesTreatedChange}
+                    name="holesTreated"
+                    value={this.state.holesTreated}
+                  />
+                </Control>
+              </Field>
+              <Field onSubmit={this.handleSubmit}>
+                <Control>
+                  <label> Length of Cut Treated: </label>
+                  <Input
+                    style={{ color: "black" }}
+                    type="text"
+                    onChange={this.handleLengthOfCutTreatedChange}
+                    name="lengthOfCutTreated"
+                    value={this.state.lengthOfCutTreated}
+                  />
+                </Control>
+              </Field>
+              <Field onSubmit={this.handleSubmit}>
+                <Control>
+                  <label> Chemicals Being Used: </label>
+                  <Input
+                    style={{ color: "black" }}
+                    type="text"
+                    onChange={this.handleChemicalsBeingUsedChange}
+                    name="chemicalsBeingUsed"
+                    value={this.state.chemicalsBeingUsed}
+                  />
+                </Control>
+              </Field>
+              <Field onSubmit={this.handleSubmit}>
+                <Control>
+                  <label> Rate Applied: </label>
+                  <Input
+                    style={{ color: "black" }}
+                    type="text"
+                    onChange={this.handleRateAppliedChange}
+                    name="rateApplied"
+                    value={this.state.rateApplied}
+                  />
+                </Control>
+              </Field>
+              <Field onSubmit={this.handleSubmit}>
+                <Control>
+                  <label> Total Gallons: </label>
+                  <Input
+                    style={{ color: "black" }}
+                    type="text"
+                    onChange={this.handleTotalGallonsChange}
+                    name="totalGallons"
+                    value={this.state.totalGallons}
+                  />
+                </Control>
+              </Field>
+              <Field onSubmit={this.handleSubmit}>
+                <Control>
+                  <label> Spray Rig: </label>
+                  <Input
+                    style={{ color: "black" }}
+                    type="text"
+                    onChange={this.handleSprayRigChange}
+                    name="sprayRig"
+                    value={this.state.sprayRig}
+                  />
+                </Control>
+              </Field>
+              <Field onSubmit={this.handleSubmit}>
+                <Control>
+                  <label> Pest or Disease Controlled: </label>
+                  <Input
+                    style={{ color: "black" }}
+                    type="text"
+                    onChange={this.handlePestOrDiseaseControlledChange}
+                    name="pestOrDiseaseControlled"
+                    value={this.state.pestOrDiseaseControlled}
+                  />
+                </Control>
+              </Field>
+              <Field isGrouped>
+                <Control>
+                  <Button iscolor="primary" onClick={this.handleSubmit}>
+                    Submit
+                  </Button>
+                </Control>
+              </Field>
+            </Card>
+          </Box>
+        </div>
       </>
     );
   }

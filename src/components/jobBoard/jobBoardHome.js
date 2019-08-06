@@ -43,17 +43,16 @@ class JobBoardHome extends Component {
     return (
       <div className="job__board">
         <div className="parallax">
-          <Title isSize={1}>Job Board Home</Title>
-          <AddJobBoard />
-
           <div className="ui container div-emp-table">
-            <Title isSize={3}>Employees Working</Title>
+            <Title style={{ color: "white" }} isSize={3}>
+              Employees Working
+            </Title>
             <table className="ui selectable celled table inverted">
               <thead>
                 <tr className="is-selected">
+                  <td>Employee</td>
                   <td>Date</td>
                   <td>Job Type</td>
-                  <td>Employee</td>
                   <td>Comments</td>
                   <td>Details</td>
                 </tr>
@@ -62,12 +61,13 @@ class JobBoardHome extends Component {
                 {jobs.map(job => {
                   return (
                     <tr key={`job-${job.id}`}>
-                      <td>{job.date}</td>
-                      <td>{job.jobtype}</td>
                       <td>
                         {job.fullname}
                         {/* {job.firstname} {job.lastname} */}
                       </td>
+                      <td>{job.date}</td>
+                      <td>{job.jobtype}</td>
+
                       <td>{job.comments}</td>
                       <td>
                         <Link to={`/jobs/${job.id}`}>View Details</Link>
@@ -77,8 +77,8 @@ class JobBoardHome extends Component {
                 })}
               </tbody>
             </table>
+            <AddJobBoard />
           </div>
-          {this.state.admin === true && <AddJobBoard />}
         </div>
       </div>
     );

@@ -11,11 +11,18 @@ import {
 } from "bloomer";
 import "bulma";
 
-const cardstyle = {
-  padding: "4px",
-  background: "darkblue",
-  margin: "10rem"
+const boxstyle = {
+  background: "black",
+  width: "50%",
+  fontSize: "4rem",
+  textAlign: "center",
+  margin: "0 auto"
 };
+const cardstyle = {
+  padding: "0px",
+  background: "white"
+};
+
 class AddJobBoard extends Component {
   state = {
     date: "",
@@ -23,31 +30,26 @@ class AddJobBoard extends Component {
     employee: "",
     comments: ""
   };
-
   handleDateChange = e => {
     this.setState({
       date: e.target.value
     });
   };
-
   handleJobTypeChange = e => {
     this.setState({
       jobtype: e.target.value
     });
   };
-
   handleemployeeChange = e => {
     this.setState({
       employee: e.target.value
     });
   };
-
   handleCommentsChange = e => {
     this.setState({
       comments: e.target.value
     });
   };
-
   handleSubmit = () => {
     const date = this.state.date;
     const jobtype = this.state.jobtype;
@@ -74,59 +76,69 @@ class AddJobBoard extends Component {
       });
     console.log("response", response);
   };
-
   render() {
     return (
-      <div className="ui equal width form">
-        <div className="fields">
-          <div className="field">
-            <label>Date</label>
-            <input
-              type="date"
-              placeholder="Date"
-              onChange={this.handleDateChange}
-              name="date"
-              value={this.state.date}
-            />
-          </div>
-          <div className="fields">
-            <div className="field">
-              <Input
-                type="text"
-                placeholder="Job"
-                onChange={this.handleJobTypeChange}
-                name="jobtype"
-                value={this.state.jobtype}
-              />
-            </div>
-            <div className="fields">
-              <div className="field">
-                <label>Full Name</label>
-                <input
+      <>
+        {/* <div className="form-container"> */}
+        <Box style={boxstyle}>
+          <Card style={cardstyle}>
+            <Title isSize={2}>Add Job Board</Title>
+            <Field onSubmit={this.handleSubmit}>
+              <Control>
+                <Input
+                  type="date"
+                  placeholder="Date"
+                  onChange={this.handleDateChange}
+                  name="date"
+                  value={this.state.date}
+                />
+              </Control>
+            </Field>
+            <Field onSubmit={this.handleSubmit}>
+              <Control>
+                <Input
+                  type="text"
+                  placeholder="Job"
+                  onChange={this.handleJobTypeChange}
+                  name="jobtype"
+                  value={this.state.jobtype}
+                />
+              </Control>
+            </Field>
+            <Field onSubmit={this.handleSubmit}>
+              <Control>
+                <Input
                   type="text"
                   placeholder="Full Name"
                   onChange={this.handleemployeeChange}
                   name="employee"
                   value={this.state.employee}
                 />
-              </div>
-              <div className="fields">
-                <div className="field">
-                  <TextArea
-                    placeholder={"Comments "}
-                    type="text"
-                    onChange={this.handleCommentsChange}
-                    name="comments"
-                    value={this.state.comments}
-                  />
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+              </Control>
+            </Field>
+            <Field onSubmit={this.handleSubmit}>
+              <Control>
+                <TextArea
+                  placeholder={"Comments "}
+                  type="text"
+                  onChange={this.handleCommentsChange}
+                  name="comments"
+                  value={this.state.comments}
+                />
+              </Control>
+            </Field>
+            <Field isGrouped>
+              <Control>
+                <Button iscolor="primary" onClick={this.handleSubmit}>
+                  Submit
+                </Button>
+              </Control>
+            </Field>
+          </Card>
+        </Box>
+        {/* </div> */}
+      </>
     );
   }
 }
-
 export default AddJobBoard;
