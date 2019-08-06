@@ -4,7 +4,8 @@ import AddJobBoard from './addJobBoard';
 import { Table, Title } from 'bloomer';
 
 const listyle = {
-    textAlign: "center"
+    textAlign: "center",
+    color: "transparent"
 }
 
 class JobBoardHome extends Component {
@@ -40,7 +41,6 @@ class JobBoardHome extends Component {
 
         return(
             <>
-            <div className='home-photo'></div>
             <Title isSize={3}>Job Board Home</Title>
             <AddJobBoard />
             <Title isSize={3}>Employees Working</Title>

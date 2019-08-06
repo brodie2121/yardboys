@@ -2,15 +2,6 @@
   text-align: center;
 }
 
-.home-photo {
-  background-image: url("./images/mower.JPG");
-  height: 100%; 
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  position: relative;
-}
-
 .App-link {
   color: black;
 }
@@ -23,3 +14,29 @@
     transform: rotate(360deg);
   }
 }
+.homecontainer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 1180px;
+  width: 100%;
+
+  background: url('./images/overlook.PNG');
+
+  background-position: center;
+}
+
+.spraycontainer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  min-height: 100%;
+  width: 100%;
+  background: url('./images/clouds.PNG');
+  
+  background-position: center;
+
+
+}
+
+

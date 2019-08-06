@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import { BrowserRouter as Router, Route } from "react-router-dom";
+import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import './App.css';
-import Navbar from './components/navbar/navbar';
+import { Navbar, NavbarStart, NavbarEnd, NavbarItem, NavbarBrand, brand, Icon, NavbarBurger, NavbarMenu, NavbarLink, NavbarDropdown, NavbarDivider, Field, Control, Button  } from "bloomer";
 import SprayCharts from './components/spraychart/spraychart';
 import UpdateSpraychart from './components/spraychart/updateSpraychart';
 import AddSpraychart from './components/spraychart/addSpraychart';
@@ -24,7 +24,6 @@ import CourseHome from './components/yourCourse/courseHome';
 import YourCourse from './components/yourCourse/course';
 import UpdateCourse from './components/yourCourse/updateCourse';
 import HomePage from './components/home';
-
 
 class App extends Component {
 
@@ -101,8 +100,59 @@ class App extends Component {
         window.sessionStorage.setItem("loggedInStatus", login);
     return (
       <Router>
-        <Route path="/" component={Navbar} />
-        
+          <Navbar
+            style={{
+              border: "solid 1px #FFCD00",
+              margin: "0",
+              background: "white",
+              color: "black"
+            }}
+          >
+              <NavbarStart>
+              {!!login ? (
+                <NavbarItem>
+                <Link to="/home" style={{ color: "black" }}>
+                  Home
+                </Link>
+                  <Link to="/jobboard/all" style={{ color: "black" }}>
+                    Job Board
+                  </Link>
+                  <Link to="/spraychart/all" style={{ color: "black" }}>
+                    Spray Chart
+                  </Link>
+                  <Link to="/employee/all" style={{ color: "black" }}>
+                    Yard Boys
+                  </Link>
+                </NavbarItem>
+              ) : null}
+            </NavbarStart>
+            <NavbarEnd>
+              {!!login ? (
+                <NavbarItem>
+                  <Link
+                    onClick={this.handleLogoutState}
+                    style={{ color: "black" }}
+                  >
+                    Logout
+                  </Link>
+                </NavbarItem>
+              ) : (
+                <>
+                  <NavbarItem>
+                    <Link to="/employee/login" style={{ color: "black" }}>
+                      Login
+                    </Link>
+                  </NavbarItem>
+                  <NavbarItem>
+                    <Link to="/employee/register" style={{ color: "black" }}>
+                      Sign Up
+                    </Link>
+                  </NavbarItem>
+                </>
+              )}
+            </NavbarEnd>
+          </Navbar>
+
         <Route path="/home" exact component={HomePage} />
         <Route 
           path="/employee/login"

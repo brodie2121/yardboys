@@ -103,7 +103,7 @@ class Login extends Component {
         <p>
           Not signed up yet? <Link to="/employee/register">Register here!</Link>
         </p>
-        {!!login ? <Redirect to="/" /> : ""}
+        {!!login ? <Redirect to="/home" /> : ""}
       </Card>
     );
   }

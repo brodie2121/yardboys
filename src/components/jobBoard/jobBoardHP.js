@@ -34,7 +34,7 @@ class JobBoardHP extends Component {
 
         return(
             <>
-                <Title isSize={3}>Today's Jobs</Title>
+                <Title style={{color: "white"}} isSize={1}>Today's Jobs</Title>
                 <ul>
                     {jobs.map(job => {
                         return ( 

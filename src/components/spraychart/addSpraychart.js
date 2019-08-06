@@ -1,6 +1,5 @@
 import React, { Component } from 'react'; 
 
-
 class AddSpraychart extends Component {
     state = {
         dateApplied : "",

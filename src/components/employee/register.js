@@ -192,7 +192,7 @@ class Register extends Component {
 				<Button isLink>Cancel</Button>
 			  </Control>
 			</Field>
-			{!!EmployeeRegistered ? <Redirect to="/home" /> : ""}
+			{!!EmployeeRegistered ? <Redirect to="/login" /> : ""}
 		  </Card>
 		);
 	  }
