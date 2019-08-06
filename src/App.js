@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import './App.css';
-import { Navbar, NavbarStart, NavbarEnd, NavbarItem, NavbarBrand, brand, Icon, NavbarBurger, NavbarMenu, NavbarLink, NavbarDropdown, NavbarDivider, Field, Control, Button  } from "bloomer";
+import { Navbar, NavbarStart, NavbarEnd, NavbarItem } from "bloomer";
 import SprayCharts from './components/spraychart/spraychart';
 import UpdateSpraychart from './components/spraychart/updateSpraychart';
 import AddSpraychart from './components/spraychart/addSpraychart';
@@ -102,28 +102,36 @@ class App extends Component {
       <Router>
           <Navbar
             style={{
-              border: "solid 1px #FFCD00",
               margin: "0",
-              background: "white",
-              color: "black"
+              background: "black",
+              color: "white",
+
             }}
           >
               <NavbarStart>
               {!!login ? (
-                <NavbarItem>
-                <Link to="/home" style={{ color: "black" }}>
-                  Home
-                </Link>
-                  <Link to="/jobboard/all" style={{ color: "black" }}>
-                    Job Board
-                  </Link>
-                  <Link to="/spraychart/all" style={{ color: "black" }}>
-                    Spray Chart
-                  </Link>
-                  <Link to="/employee/all" style={{ color: "black" }}>
-                    Yard Boys
+                <>
+                <NavbarItem >
+                  <Link to="/home" style={{ color: "white" }}>
+                    Home
                   </Link>
                 </NavbarItem>
+                <NavbarItem >
+                    <Link to="/jobboard/all" style={{ color: "white" }}>
+                      Job Board
+                    </Link>
+                </NavbarItem>
+                <NavbarItem >
+                    <Link to="/spraychart/all" style={{ color: "white" }}>
+                      Spray Chart
+                    </Link>
+                </NavbarItem>
+                <NavbarItem >
+                      <Link to="/employee/all" style={{ color: "white" }}>
+                        Yard Boys
+                      </Link>
+                </NavbarItem>
+                </>
               ) : null}
             </NavbarStart>
             <NavbarEnd>
@@ -131,7 +139,7 @@ class App extends Component {
                 <NavbarItem>
                   <Link
                     onClick={this.handleLogoutState}
-                    style={{ color: "black" }}
+                    style={{ color: "white" }}
                   >
                     Logout
                   </Link>
@@ -139,12 +147,12 @@ class App extends Component {
               ) : (
                 <>
                   <NavbarItem>
-                    <Link to="/employee/login" style={{ color: "black" }}>
+                    <Link to="/employee/login" style={{ color: "white" }}>
                       Login
                     </Link>
                   </NavbarItem>
                   <NavbarItem>
-                    <Link to="/employee/register" style={{ color: "black" }}>
+                    <Link to="/employee/register" style={{ color: "white" }}>
                       Sign Up
                     </Link>
                   </NavbarItem>

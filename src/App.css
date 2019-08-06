@@ -20,9 +20,8 @@
   left: 0;
   height: 1180px;
   width: 100%;
-
-  background: url('./images/overlook.PNG');
-
+  background: url("./images/overlook.PNG");
+  background-size: cover;
   background-position: center;
 }
 
@@ -32,11 +31,54 @@
   left: 0;
   min-height: 100%;
   width: 100%;
-  background: url('./images/clouds.PNG');
-  
+  background: url("./images/golfcourse.png") no-repeat center fixed;
+  background-size: cover;
   background-position: center;
-
-
 }
 
+.parallax {
+  /* Full height */
+  height: 100%;
 
+  /* Create the parallax scrolling effect */
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-image: url("./images/greens.PNG");
+}
+
+.parallaxTwo {
+  /* Full height */
+  height: 100%;
+
+  /* Create the parallax scrolling effect */
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-image: url("./images/fwy.JPG");
+}
+
+.underline {
+  border-bottom: 1px solid;
+  margin-bottom: 12px;
+  margin-top: 12px;
+  padding-bottom: 5px;
+  width: 50%;
+}
+.list-container {
+  margin-top: 40px !important;
+}
+
+.parallaxthree {
+  /* Full height */
+  height: 1900px;
+
+  /* Create the parallax scrolling effect */
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-image: url("./images/flag.JPG");
+}
